@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaFilter } from 'react-icons/fa';
 import budgetTracker  from '../assets/budget-tracker.png'
 import deepfake from '../assets/Deep-fake.png'
-import ecommerce from '../assets/E-commerce.png'
+import ecommerce from '../assets/E-Commerce.png'
 import portfolio from '../assets/Portfolio.png'
 
 const Projects = () => {
