@@ -5,7 +5,7 @@ A modern, interactive, and responsive developer portfolio built with React, Vite
 ---
 
 ## 🚀 Live Demo
-[View Portfolio Live](https://rajeevverma-portfolio.com)
+[View Portfolio Live](https://my-portfolio-git-main-rv1175544-gmailcoms-projects.vercel.app/)
 
 ---
 
