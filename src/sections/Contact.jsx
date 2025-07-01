@@ -1,53 +1,7 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { FaEnvelope, FaPhone, FaLocationDot, FaPaperPlane, FaGithub, FaLinkedin, FaInstagram, FaXTwitter } from 'react-icons/fa6';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const validate = () => {
-    const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-    if (!formData.subject.trim()) newErrors.subject = 'Subject is required';
-    if (!formData.message.trim()) newErrors.message = 'Message is required';
-    if (formData.message.trim().length < 10) newErrors.message = 'Message must be at least 10 characters';
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validate()) return;
-
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => setSubmitted(false), 5000);
-  };
-
   const contactInfo = [
     {
       icon: FaEnvelope,
@@ -197,44 +151,32 @@ const Contact = () => {
             viewport={{ once: true }}
             className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
           >
-            {submitted && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-400 text-center"
-              >
-                ✅ Thank you! Your message has been sent successfully. I'll get back to you soon!
-              </motion.div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              action="https://formspree.io/f/mpwrbnrk"
+              method="POST"
+              className="space-y-6"
+            >
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-white font-medium mb-2">Name</label>
                   <input
                     type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className={`w-full p-4 rounded-lg bg-white/10 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] ${
-                      errors.name ? 'border-red-500' : 'border-white/20 focus:border-[#00d4aa]'
-                    }`}
+                    className="w-full p-4 rounded-lg bg-white/10 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] border-white/20 focus:border-[#00d4aa]"
                     placeholder="Your full name"
+                    name="name"
+                    required
                   />
-                  {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
                 </div>
 
                 <div>
                   <label className="block text-white font-medium mb-2">Email</label>
                   <input
                     type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className={`w-full p-4 rounded-lg bg-white/10 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] ${
-                      errors.email ? 'border-red-500' : 'border-white/20 focus:border-[#00d4aa]'
-                    }`}
+                    className="w-full p-4 rounded-lg bg-white/10 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] border-white/20 focus:border-[#00d4aa]"
                     placeholder="your.email@example.com"
+                    name="email"
+                    required
                   />
-                  {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
                 </div>
               </div>
 
@@ -242,52 +184,32 @@ const Contact = () => {
                 <label className="block text-white font-medium mb-2">Subject</label>
                 <input
                   type="text"
-                  value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className={`w-full p-4 rounded-lg bg-white/10 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] ${
-                    errors.subject ? 'border-red-500' : 'border-white/20 focus:border-[#00d4aa]'
-                  }`}
+                  className="w-full p-4 rounded-lg bg-white/10 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] border-white/20 focus:border-[#00d4aa]"
                   placeholder="What's this about?"
+                  name="subject"
+                  required
                 />
-                {errors.subject && <p className="text-red-400 text-sm mt-1">{errors.subject}</p>}
               </div>
 
               <div>
                 <label className="block text-white font-medium mb-2">Message</label>
                 <textarea
                   rows="6"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className={`w-full p-4 rounded-lg bg-white/10 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] resize-none ${
-                    errors.message ? 'border-red-500' : 'border-white/20 focus:border-[#00d4aa]'
-                  }`}
+                  className="w-full p-4 rounded-lg bg-white/10 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] resize-none border-white/20 focus:border-[#00d4aa]"
                   placeholder="Tell me about your project..."
+                  name="message"
+                  required
                 />
-                {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
               </div>
 
               <motion.button
                 type="submit"
-                disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={`w-full py-4 px-8 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center gap-3 ${
-                  isSubmitting
-                    ? 'bg-gray-600 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-[#00d4aa] to-[#00b894] hover:shadow-lg hover:shadow-[#00d4aa]/25'
-                }`}
+                className="w-full py-4 px-8 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center gap-3 bg-gradient-to-r from-[#00d4aa] to-[#00b894] hover:shadow-lg hover:shadow-[#00d4aa]/25"
               >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <FaPaperPlane size={18} />
-                    Send Message
-                  </>
-                )}
+                <FaPaperPlane size={18} />
+                Send Message
               </motion.button>
             </form>
           </motion.div>
