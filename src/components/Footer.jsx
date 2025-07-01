@@ -40,7 +40,7 @@ const Footer = () => {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold mb-4 bg-gradient-to-r from-white via-[#00d4aa] to-white bg-clip-text text-transparent"
             >
-              Rajeev.Dev
+              Rajeev | Dev
             </motion.h3>
             <p className="text-gray-300 text-sm leading-relaxed">
               Full-stack developer passionate about creating innovative digital experiences 
