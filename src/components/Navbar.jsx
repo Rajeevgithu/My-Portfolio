@@ -87,14 +87,16 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile Icon */}
-        <motion.div 
-          className="lg:hidden text-white text-xl sm:text-2xl cursor-pointer z-50 p-2" 
-          onClick={toggleNav}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          {navOpen ? <FaTimes /> : <FaBars />}
-        </motion.div>
+        {!navOpen && (
+          <motion.div 
+            className="lg:hidden text-white text-xl sm:text-2xl cursor-pointer z-50 p-2" 
+            onClick={toggleNav}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <FaBars />
+          </motion.div>
+        )}
 
         {/* Mobile Menu */}
         <AnimatePresence>
