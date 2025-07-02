@@ -208,8 +208,8 @@ const Contact = () => {
                 whileTap={{ scale: 0.98 }}
                 className="w-full py-4 px-8 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center gap-3 bg-gradient-to-r from-[#00d4aa] to-[#00b894] hover:shadow-lg hover:shadow-[#00d4aa]/25"
               >
-                <FaPaperPlane size={18} />
-                Send Message
+                    <FaPaperPlane size={18} />
+                    Send Message
               </motion.button>
             </form>
           </motion.div>

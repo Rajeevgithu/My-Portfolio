@@ -88,14 +88,14 @@ const Navbar = () => {
 
         {/* Mobile Icon */}
         {!navOpen && (
-          <motion.div 
-            className="lg:hidden text-white text-xl sm:text-2xl cursor-pointer z-50 p-2" 
-            onClick={toggleNav}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
+        <motion.div 
+          className="lg:hidden text-white text-xl sm:text-2xl cursor-pointer z-50 p-2" 
+          onClick={toggleNav}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
             <FaBars />
-          </motion.div>
+        </motion.div>
         )}
 
         {/* Mobile Menu */}
