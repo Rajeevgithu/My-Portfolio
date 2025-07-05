@@ -17,7 +17,7 @@ const Projects = () => {
       description: 'Advanced React-based frontend for detecting and visualizing deepfake content using TensorFlow.js. Features real-time analysis, interactive visualizations, and user-friendly interface.',
       tech: ['React', 'TensorFlow.js', 'Tailwind CSS', 'Framer Motion'],
       github: 'https://github.com/Rajeevgithu/Deepfake-frontend',
-      demo: 'https://deepfake-detection-demo.vercel.app',
+      demo: 'https://deepfake-detection-lh9w.vercel.app/',
       image: deepfake,
       category: 'ai-ml',
       featured: true
