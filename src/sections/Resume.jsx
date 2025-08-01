@@ -70,7 +70,7 @@ const Resume = () => {
   };
 
   return (
-    <section id="resume" className="min-h-screen w-full bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] text-white px-6 py-20 md:px-20 relative overflow-hidden">
+    <section id="resume" className="min-h-screen w-full bg-gradient-to-br from-background via-muted/20 to-background dark:from-background dark:via-muted/10 dark:to-background text-foreground px-6 py-20 md:px-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-20 left-20 w-64 h-64 bg-[#00d4aa] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
@@ -87,11 +87,11 @@ const Resume = () => {
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-white via-[#00d4aa] to-white bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-foreground via-[#00d4aa] to-foreground bg-clip-text text-transparent">
               Resume
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             My professional journey, skills, and achievements. Download my resume for a detailed overview.
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-[#00d4aa] to-[#00b894] mx-auto rounded-full"></div>
@@ -99,7 +99,7 @@ const Resume = () => {
 
         {/* Download Section */}
         <motion.div variants={itemVariants} className="text-center mb-16">
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 max-w-2xl mx-auto">
+          <div className="bg-muted/50 backdrop-blur-sm border border-border rounded-2xl p-8 max-w-2xl mx-auto">
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <motion.a
                 href="/Resume.pdf"
@@ -115,7 +115,7 @@ const Resume = () => {
                 onClick={() => window.open('/Resume.pdf', '_blank', 'title=Rajeev Verma Resume')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 bg-transparent text-white px-8 py-4 rounded-lg font-semibold border-2 border-[#00d4aa] hover:bg-[#00d4aa]/10 transition-all duration-300"
+                className="inline-flex items-center gap-3 bg-transparent text-foreground px-8 py-4 rounded-lg font-semibold border-2 border-[#00d4aa] hover:bg-[#00d4aa]/10 transition-all duration-300"
               >
                 <FaEye size={18} />
                 Preview Resume
@@ -140,7 +140,7 @@ const Resume = () => {
               className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 border-2 ${
                 activeTab === tab.id
                   ? 'bg-gradient-to-r from-[#00d4aa] to-[#00b894] text-white border-[#00d4aa] shadow-lg'
-                  : 'bg-white/5 text-gray-300 border-white/20 hover:bg-white/10 hover:border-white/30'
+                  : 'bg-muted/50 text-muted-foreground border-border hover:bg-muted hover:border-border/70'
               }`}
             >
               <tab.icon size={16} />
@@ -166,16 +166,16 @@ const Resume = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300"
+                  className="bg-muted/50 backdrop-blur-sm border border-border rounded-xl p-6 hover:bg-muted transition-all duration-300"
                 >
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
-                      <h3 className="text-xl font-bold text-white mb-1">{exp.title}</h3>
+                      <h3 className="text-xl font-bold text-foreground mb-1">{exp.title}</h3>
                       <p className="text-[#00d4aa] font-medium">{exp.company}</p>
                     </div>
-                    <span className="text-gray-400 text-sm md:text-base mt-2 md:mt-0">{exp.period}</span>
+                    <span className="text-muted-foreground text-sm md:text-base mt-2 md:mt-0">{exp.period}</span>
                   </div>
-                  <p className="text-gray-300 mb-4 leading-relaxed">{exp.description}</p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {exp.skills.map((skill, skillIndex) => (
                       <span
@@ -200,21 +200,21 @@ const Resume = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300"
+                  className="bg-muted/50 backdrop-blur-sm border border-border rounded-xl p-6 hover:bg-muted transition-all duration-300"
                 >
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
-                      <h3 className="text-xl font-bold text-white mb-1">{edu.degree}</h3>
+                      <h3 className="text-xl font-bold text-foreground mb-1">{edu.degree}</h3>
                       <p className="text-[#00d4aa] font-medium">{edu.institution}</p>
                     </div>
-                    <span className="text-gray-400 text-sm md:text-base mt-2 md:mt-0">{edu.period}</span>
+                    <span className="text-muted-foreground text-sm md:text-base mt-2 md:mt-0">{edu.period}</span>
                   </div>
-                  <p className="text-gray-300 mb-4 leading-relaxed">{edu.description}</p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">{edu.description}</p>
                   <div className="space-y-2">
                     {edu.achievements.map((achievement, achievementIndex) => (
                       <div key={achievementIndex} className="flex items-center gap-2">
                         <div className="w-2 h-2 bg-[#00d4aa] rounded-full"></div>
-                        <span className="text-gray-300 text-sm">{achievement}</span>
+                        <span className="text-muted-foreground text-sm">{achievement}</span>
                       </div>
                     ))}
                   </div>
@@ -232,14 +232,14 @@ const Resume = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6"
+                  className="bg-muted/50 backdrop-blur-sm border border-border rounded-xl p-6"
                 >
-                  <h3 className="text-xl font-bold text-white mb-4 text-center">{skillGroup.category}</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-4 text-center">{skillGroup.category}</h3>
                   <div className="space-y-3">
                     {skillGroup.items.map((skill, skillIndex) => (
                       <div key={skillIndex} className="flex items-center justify-between">
-                        <span className="text-gray-300">{skill}</span>
-                        <div className="w-20 h-2 bg-white/10 rounded-full overflow-hidden">
+                        <span className="text-muted-foreground">{skill}</span>
+                        <div className="w-20 h-2 bg-muted rounded-full overflow-hidden">
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${Math.random() * 40 + 60}%` }}
@@ -257,21 +257,21 @@ const Resume = () => {
           )}
 
           {activeTab === 'certifications' && (
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-8">
               {certifications.map((cert, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  key={cert.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300"
+                  className="bg-muted/50 backdrop-blur-sm border border-border rounded-xl p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between"
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-lg font-bold text-white">{cert.name}</h3>
-                    <span className="text-[#00d4aa] text-sm font-medium">{cert.year}</span>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground mb-1">{cert.name}</h3>
+                    <p className="text-muted-foreground">{cert.issuer}</p>
                   </div>
-                  <p className="text-gray-300 text-sm">{cert.issuer}</p>
+                  <span className="text-[#00d4aa] font-semibold mt-2 sm:mt-0">{cert.year}</span>
                 </motion.div>
               ))}
             </div>

@@ -7,6 +7,7 @@ import budgetTracker  from '../assets/budget-tracker.png'
 import deepfake from '../assets/Deep-fake.png'
 import ecommerce from '../assets/E-Commerce.png'
 import portfolio from '../assets/Portfolio.png'
+import solarSystem from '../assets/3d-solar-system.png'
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -52,6 +53,16 @@ const Projects = () => {
       category: 'frontend',
       featured: false
     },
+    {
+      title: '3D Solar System',
+      description: 'A 3D solar system built with Three.js. Features a realistic representation of the solar system, including the planets, moons, and stars.',
+      tech: ['Three.js', 'React', 'Tailwind CSS', 'Framer Motion'],
+      github: 'https://github.com/Rajeevgithu/3d-Solar-System',
+      demo: 'https://3d-solar-system-eight.vercel.app/',
+      image: solarSystem,
+      category: 'frontend',
+      featured: false
+    }
   ];
 
   const filters = [
@@ -85,11 +96,23 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="min-h-screen w-full bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] text-white px-4 sm:px-6 lg:px-20 py-16 sm:py-20 relative overflow-hidden">
+    <section id="projects" className="min-h-screen w-full bg-gradient-to-br from-background via-muted/20 to-background dark:from-background dark:via-muted/10 dark:to-background text-foreground px-4 sm:px-6 lg:px-20 py-16 sm:py-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-10 sm:top-20 right-10 sm:right-20 w-32 h-32 sm:w-64 sm:h-64 bg-[#00d4aa] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
-        <div className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-32 h-32 sm:w-64 sm:h-64 bg-[#00b894] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 0.1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="absolute top-10 sm:top-20 right-10 sm:right-20 w-32 h-32 sm:w-64 sm:h-64 bg-[#00d4aa] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"
+        />
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 0.1 }}
+          transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-32 h-32 sm:w-64 sm:h-64 bg-[#00b894] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"
+        />
       </div>
 
       <motion.div
@@ -102,11 +125,11 @@ const Projects = () => {
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-white via-[#00d4aa] to-white bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-foreground via-[#00d4aa] to-foreground bg-clip-text text-transparent">
               My Projects
             </span>
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
             Explore my latest work and creative solutions. Each project represents a unique challenge 
             and showcases different aspects of modern web development.
           </p>
@@ -124,7 +147,7 @@ const Projects = () => {
               className={`px-3 py-2 rounded-lg font-medium transition-all duration-300 border-2 text-xs sm:text-sm ${
                 activeFilter === filter.id
                   ? 'bg-gradient-to-r from-[#00d4aa] to-[#00b894] text-white border-[#00d4aa] shadow-lg'
-                  : 'bg-white/5 text-gray-300 border-white/20 hover:bg-white/10 hover:border-white/30'
+                  : 'bg-muted/50 text-muted-foreground border-border hover:bg-muted hover:border-border/70'
               }`}
             >
               <div className="flex items-center gap-1.5">
@@ -164,8 +187,8 @@ const Projects = () => {
             className="text-center py-12 sm:py-16 px-4"
           >
             <div className="text-4xl sm:text-6xl mb-4">🔍</div>
-            <h3 className="text-xl sm:text-2xl font-semibold text-white mb-2">No projects found</h3>
-            <p className="text-gray-400 text-sm sm:text-base">Try selecting a different filter to see more projects.</p>
+            <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2">No projects found</h3>
+            <p className="text-muted-foreground text-sm sm:text-base">Try selecting a different filter to see more projects.</p>
           </motion.div>
         )}
 
@@ -174,7 +197,7 @@ const Projects = () => {
           variants={itemVariants}
           className="text-center mt-16 sm:mt-20 px-4"
         >
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
+          <div className="bg-muted/50 backdrop-blur-sm border border-border rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
               Have a project in mind?
             </h3>

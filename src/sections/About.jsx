@@ -20,55 +20,134 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
       }
     }
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      }
+    }
+  };
+
+  const skillVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      }
+    }
+  };
+
+  const progressVariants = {
+    hidden: { width: 0 },
+    visible: (level) => ({
+      width: `${level}%`,
+      transition: {
+        duration: 1.2,
+        ease: "easeOut",
+        delay: 0.3,
+      }
+    })
+  };
+
+  const socialVariants = {
+    hover: {
+      scale: 1.1,
+      y: -5,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      }
+    },
+    tap: {
+      scale: 0.95,
+      transition: {
+        duration: 0.1,
+      }
+    }
   };
 
   return (
-    <section id="about" className="min-h-screen w-full bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] text-white px-4 sm:px-6 lg:px-20 py-16 sm:py-20 relative overflow-hidden">
+    <section id="about" className="min-h-screen w-full bg-gradient-to-br from-background via-muted/20 to-background dark:from-background dark:via-muted/10 dark:to-background text-foreground px-4 sm:px-6 lg:px-20 py-16 sm:py-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-10 sm:top-20 right-10 sm:right-20 w-32 h-32 sm:w-64 sm:h-64 bg-[#00d4aa] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
-        <div className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-32 h-32 sm:w-64 sm:h-64 bg-[#00b894] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 0.1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="absolute top-10 sm:top-20 right-10 sm:right-20 w-32 h-32 sm:w-64 sm:h-64 bg-[#00d4aa] rounded-full mix-blend-multiply filter blur-xl animate-blob"
+        />
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 0.1 }}
+          transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-32 h-32 sm:w-64 sm:h-64 bg-[#00b894] rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"
+        />
       </div>
 
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
         className="max-w-6xl mx-auto relative z-10"
       >
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-white via-[#00d4aa] to-white bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-foreground via-[#00d4aa] to-foreground bg-clip-text text-transparent">
               About Me
             </span>
           </h2>
-          <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-[#00d4aa] to-[#00b894] mx-auto rounded-full"></div>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "100px" }}
+            transition={{ duration: 1, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="w-16 sm:w-24 h-1 bg-gradient-to-r from-[#00d4aa] to-[#00b894] mx-auto rounded-full"
+          />
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Profile Section */}
           <motion.div variants={itemVariants} className="text-center lg:text-left">
             <div className="relative inline-block mb-6 sm:mb-8">
-              <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-r from-[#00d4aa] to-[#00b894] p-1">
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                whileInView={{ scale: 1, rotate: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-r from-[#00d4aa] to-[#00b894] p-1"
+              >
                 <img
                   src={profile}
                   alt="Rajeev Verma"
                   className="w-full h-full rounded-full object-cover"
                 />
-              </div>
-              <div className="absolute -bottom-2 sm:-bottom-4 -right-2 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-[#00d4aa] to-[#00b894] rounded-full flex items-center justify-center shadow-lg">
+              </motion.div>
+              <motion.div
+                initial={{ scale: 0, rotate: 180 }}
+                whileInView={{ scale: 1, rotate: 0 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="absolute -bottom-2 sm:-bottom-4 -right-2 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-[#00d4aa] to-[#00b894] rounded-full flex items-center justify-center shadow-lg"
+              >
                 <span className="text-lg sm:text-2xl">👨‍💻</span>
-              </div>
+              </motion.div>
             </div>
 
             {/* Social Links */}
@@ -77,14 +156,18 @@ const About = () => {
                 href="https://github.com/Rajeevgithu"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -2 }}
+                variants={socialVariants}
+                whileHover="hover"
+                whileTap="tap"
                 className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-[#00d4aa] to-[#00b894] rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300"
               >
                 <FaGithub size={16} className="sm:w-5 sm:h-5" />
               </motion.a>
               <motion.a
                 href="mailto:rv1175544@gmail.com"
-                whileHover={{ scale: 1.1, y: -2 }}
+                variants={socialVariants}
+                whileHover="hover"
+                whileTap="tap"
                 className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-[#00b894] to-[#00a085] rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300"
               >
                 <FaEnvelope size={16} className="sm:w-5 sm:h-5" />
@@ -93,7 +176,9 @@ const About = () => {
                 href="https://linkedin.com/in/rajeev-verma"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -2 }}
+                variants={socialVariants}
+                whileHover="hover"
+                whileTap="tap"
                 className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-[#0077B5] to-[#00A0DC] rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300"
               >
                 <FaLinkedin size={16} className="sm:w-5 sm:h-5" />
@@ -104,15 +189,15 @@ const About = () => {
           {/* Content Section */}
           <motion.div variants={itemVariants} className="space-y-4 sm:space-y-6">
             <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white">
+              <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
                 Passionate <span className="text-[#00d4aa]">Full-Stack Developer</span>
               </h3>
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                Hello! I'm <span className="text-white font-semibold">Rajeev Verma</span>, a creative and detail-oriented 
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                Hello! I'm <span className="text-foreground font-semibold">Rajeev Verma</span>, a creative and detail-oriented 
                 developer with a passion for building exceptional digital experiences. I specialize in the MERN stack 
                 and love turning complex problems into simple, beautiful solutions.
               </p>
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                 With expertise in <span className="text-[#00d4aa] font-semibold">React</span>, <span className="text-[#00d4aa] font-semibold">Node.js</span>, 
                 and <span className="text-[#00d4aa] font-semibold">MongoDB</span>, I create scalable applications that 
                 deliver outstanding user experiences. My approach combines technical excellence with creative problem-solving.
@@ -121,14 +206,26 @@ const About = () => {
 
             {/* Key Highlights */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-3 sm:p-4">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-3 sm:p-4 hover:bg-white/10 transition-all duration-300"
+              >
                 <div className="text-xl sm:text-2xl font-bold text-[#00d4aa]">6+</div>
                 <div className="text-gray-300 text-sm sm:text-base">Months Experience</div>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-3 sm:p-4">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-3 sm:p-4 hover:bg-white/10 transition-all duration-300"
+              >
                 <div className="text-xl sm:text-2xl font-bold text-[#00d4aa]">6+</div>
                 <div className="text-gray-300 text-sm sm:text-base">Projects Completed</div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -145,8 +242,9 @@ const About = () => {
             {skills.map((skill, index) => (
               <motion.div
                 key={skill.name}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                variants={skillVariants}
+                initial="hidden"
+                whileInView="visible"
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="space-y-2"
@@ -155,12 +253,10 @@ const About = () => {
                   <span className="text-white font-medium text-sm sm:text-base">{skill.name}</span>
                   <span className="text-[#00d4aa] font-semibold text-sm sm:text-base">{skill.level}%</span>
                 </div>
-                <div className="w-full bg-white/10 rounded-full h-2">
+                <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
                   <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+                    custom={skill.level}
+                    variants={progressVariants}
                     className="h-2 rounded-full bg-gradient-to-r from-[#00d4aa] to-[#00b894]"
                     style={{ backgroundColor: skill.color }}
                   />

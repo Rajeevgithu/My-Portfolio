@@ -24,109 +24,72 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-r from-[#0a0a0a] to-[#111111] border-t border-white/10 py-12 px-6 relative overflow-hidden">
+    <footer className="bg-gradient-to-r from-background to-muted/20 dark:from-background dark:to-muted/10 border-t border-border py-12 px-6 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute bottom-10 left-10 w-32 h-32 bg-[#00d4aa] rounded-full mix-blend-multiply filter blur-xl opacity-10"></div>
         <div className="absolute top-10 right-10 w-32 h-32 bg-[#00b894] rounded-full mix-blend-multiply filter blur-xl opacity-10"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Main Footer Content */}
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Brand Section */}
-          <div className="text-center md:text-left">
-            <motion.h3 
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold mb-4 bg-gradient-to-r from-white via-[#00d4aa] to-white bg-clip-text text-transparent"
-            >
-              Rajeev | Dev
-            </motion.h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Full-stack developer passionate about creating innovative digital experiences 
-              and turning ideas into reality through code.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div className="text-center md:text-left">
-            <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
-            <div className="space-y-2">
-              {['About', 'Projects', 'Skills', 'Contact'].map((link) => (
-                <motion.a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  whileHover={{ x: 5 }}
-                  className="block text-gray-300 hover:text-[#00d4aa] transition-colors duration-300 text-sm"
-                >
-                  {link}
-                </motion.a>
-              ))}
-            </div>
-          </div>
-
-          {/* Contact Info */}
-          <div className="text-center md:text-left">
-            <h4 className="text-lg font-semibold text-white mb-4">Get In Touch</h4>
-            <div className="space-y-2 text-sm text-gray-300">
-              <p>rv1175544@gmail.com</p>
-              <p>Mumbai, India</p>
-              <p>Available for freelance work</p>
-            </div>
-          </div>
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="text-center mb-8">
+          <motion.h3 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-2xl sm:text-3xl font-bold mb-4 bg-gradient-to-r from-foreground via-[#00d4aa] to-foreground bg-clip-text text-transparent"
+          >
+            Rajeev Verma
+          </motion.h3>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-muted-foreground text-sm sm:text-base max-w-md mx-auto"
+          >
+            Crafting digital experiences with modern technologies and creative design solutions.
+          </motion.p>
         </div>
 
         {/* Social Links */}
-        <div className="flex justify-center mb-8">
-          <div className="flex gap-6">
-            {socialLinks.map((social, index) => (
-              <motion.a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className={`w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:bg-white/10 hover:border-white/20 ${social.color}`}
-                aria-label={social.label}
-              >
-                <social.icon size={20} />
-              </motion.a>
-            ))}
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8"></div>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex justify-center items-center gap-6 mb-8"
+        >
+          {socialLinks.map((social, index) => (
+            <motion.a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className={`text-foreground/70 ${social.color} transition-all duration-300 p-3 rounded-full bg-background/50 backdrop-blur-sm border border-border hover:bg-background/80`}
+              aria-label={social.label}
+            >
+              <social.icon size={20} />
+            </motion.a>
+          ))}
+        </motion.div>
 
         {/* Copyright */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-          <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-sm text-gray-400 mb-4 md:mb-0"
-          >
-            © {new Date().getFullYear()} Rajeev Verma. All rights reserved.
-          </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="flex items-center gap-2 text-sm text-gray-400"
-          >
-            <span>Made with</span>
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            >
-              <FaHeart className="text-[#00d4aa]" />
-            </motion.div>
-            <span>using React + Vite</span>
-          </motion.div>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center border-t border-border pt-8"
+        >
+          <p className="text-muted-foreground text-sm">
+            © 2024 Rajeev Verma. Made with{' '}
+            <FaHeart className="inline text-red-500 mx-1" />
+            {' '}and React
+          </p>
+        </motion.div>
       </div>
     </footer>
   );

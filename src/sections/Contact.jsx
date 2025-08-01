@@ -51,7 +51,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="min-h-screen w-full bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a] text-white px-6 py-20 md:px-20 relative overflow-hidden">
+    <section id="contact" className="min-h-screen w-full bg-gradient-to-br from-background via-muted/20 to-background dark:from-background dark:via-muted/10 dark:to-background text-foreground px-6 py-20 md:px-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-20 left-20 w-64 h-64 bg-[#00d4aa] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
@@ -68,11 +68,11 @@ const Contact = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-white via-[#00d4aa] to-white bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-foreground via-[#00d4aa] to-foreground bg-clip-text text-transparent">
               Let's Connect
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to bring your ideas to life? Let's discuss your project and create something amazing together.
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-[#00d4aa] to-[#00b894] mx-auto mt-6 rounded-full"></div>
@@ -88,10 +88,10 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-3xl font-bold mb-6 text-white">
+              <h3 className="text-3xl font-bold mb-6 text-foreground">
                 Get in <span className="text-[#00d4aa]">Touch</span>
               </h3>
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
               </p>
             </div>
@@ -106,14 +106,14 @@ const Contact = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:bg-white/10 transition-all duration-300 group"
+                  className="flex items-center gap-4 p-4 bg-muted/50 backdrop-blur-sm border border-border rounded-lg hover:bg-muted transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 bg-gradient-to-r from-[#00d4aa] to-[#00b894] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <info.icon size={20} className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white">{info.title}</h4>
-                    <p className="text-gray-300">{info.value}</p>
+                    <h4 className="font-semibold text-foreground">{info.title}</h4>
+                    <p className="text-muted-foreground">{info.value}</p>
                   </div>
                 </motion.a>
               ))}
@@ -121,7 +121,7 @@ const Contact = () => {
 
             {/* Social Links */}
             <div>
-              <h4 className="text-xl font-semibold mb-4 text-white">Follow Me</h4>
+              <h4 className="text-xl font-semibold mb-4 text-foreground">Follow Me</h4>
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -149,7 +149,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8"
+            className="bg-muted/50 backdrop-blur-sm border border-border rounded-2xl p-8"
           >
             <form
               action="https://formspree.io/f/mpwrbnrk"
@@ -158,10 +158,10 @@ const Contact = () => {
             >
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-white font-medium mb-2">Name</label>
+                  <label className="block text-foreground font-medium mb-2">Name</label>
                   <input
                     type="text"
-                    className="w-full p-4 rounded-lg bg-white/10 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] border-white/20 focus:border-[#00d4aa]"
+                    className="w-full p-4 rounded-lg bg-muted/50 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] border-border focus:border-[#00d4aa]"
                     placeholder="Your full name"
                     name="name"
                     required
@@ -169,10 +169,10 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="block text-white font-medium mb-2">Email</label>
+                  <label className="block text-foreground font-medium mb-2">Email</label>
                   <input
                     type="email"
-                    className="w-full p-4 rounded-lg bg-white/10 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] border-white/20 focus:border-[#00d4aa]"
+                    className="w-full p-4 rounded-lg bg-muted/50 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] border-border focus:border-[#00d4aa]"
                     placeholder="your.email@example.com"
                     name="email"
                     required
@@ -181,10 +181,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-white font-medium mb-2">Subject</label>
+                <label className="block text-foreground font-medium mb-2">Subject</label>
                 <input
                   type="text"
-                  className="w-full p-4 rounded-lg bg-white/10 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] border-white/20 focus:border-[#00d4aa]"
+                  className="w-full p-4 rounded-lg bg-muted/50 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] border-border focus:border-[#00d4aa]"
                   placeholder="What's this about?"
                   name="subject"
                   required
@@ -192,10 +192,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label className="block text-white font-medium mb-2">Message</label>
+                <label className="block text-foreground font-medium mb-2">Message</label>
                 <textarea
                   rows="6"
-                  className="w-full p-4 rounded-lg bg-white/10 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] resize-none border-white/20 focus:border-[#00d4aa]"
+                  className="w-full p-4 rounded-lg bg-muted/50 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] resize-none border-border focus:border-[#00d4aa]"
                   placeholder="Tell me about your project..."
                   name="message"
                   required
