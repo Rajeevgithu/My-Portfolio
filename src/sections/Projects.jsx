@@ -8,6 +8,8 @@ import deepfake from '../assets/Deep-fake.png'
 import ecommerce from '../assets/E-Commerce.png'
 import portfolio from '../assets/Portfolio.png'
 import solarSystem from '../assets/3d-solar-system.png'
+import calender from '../assets/calender.png'
+import admybrand from '../assets/admybrand.png'
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -28,7 +30,7 @@ const Projects = () => {
       description: 'Full-stack e-commerce solution with advanced features including cart management, product filtering, user authentication, payment integration, and admin dashboard.',
       tech: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Stripe'],
       github: 'https://github.com/Rajeevgithu/E-Commerce-Website',
-      demo: 'https://ecommerce-platform.vercel.app',
+      demo: 'https://e-commerce-website-dsnj.vercel.app/',
       image: ecommerce,
       category: 'fullstack',
       featured: true
@@ -38,7 +40,7 @@ const Projects = () => {
       description: 'Professional finance tracking application developed during Infosys Springboard Internship. Features expense categorization, budget planning, and financial insights.',
       tech: ['Django', 'SQLite', 'Bootstrap', 'Chart.js'],
       github: 'https://github.com/Springboard-Internship-2024/Budget-Tracker_Feb_2025',
-      demo: 'https://budget-tracker-infosys.vercel.app',
+      // demo: 'https://budget-tracker-infosys.vercel.app',
       image: budgetTracker,
       category: 'backend',
       featured: false
@@ -48,7 +50,7 @@ const Projects = () => {
       description: 'Modern, responsive portfolio website built with React and Three.js. Features 3D animations, interactive elements, and professional design.',
       tech: ['React + Vite', 'Three.js', 'Tailwind CSS', 'Framer Motion'],
       github: 'https://github.com/Rajeevgithu/portfolio',
-      demo: 'https://rajeev-verma.vercel.app',
+      demo: 'https://rajeev-portfolio-49.vercel.app/',
       image: portfolio,
       category: 'frontend',
       featured: false
@@ -62,7 +64,28 @@ const Projects = () => {
       image: solarSystem,
       category: 'frontend',
       featured: false
-    }
+    },
+    {
+      title: 'react-calender-app',
+      description: 'A calendar application built with React. Features a responsive design, event management, and a modern UI.',
+      tech: ['React', 'Tailwind CSS', 'Framer Motion'],
+      github: 'https://github.com/Rajeevgithu/React-Calender-App',
+      demo: 'https://react-calender-app-psi.vercel.app/',
+      image: calender,
+      category: 'frontend',
+      featured: false
+    },
+    {
+      title: 'admybrand-landing-page',
+      description: 'A landing page for a brand built with React. Features a responsive design, and a modern UI.',
+      tech: ['React', 'Tailwind CSS', 'Framer Motion'],
+      github: 'https://github.com/Rajeevgithu/ADMYBRAND-Landing',
+      demo: 'https://admybrand-landing-page-psi.vercel.app/',
+      image: admybrand,
+      category: 'frontend',
+      featured: false
+    },
+
   ];
 
   const filters = [

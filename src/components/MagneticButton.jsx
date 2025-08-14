@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const MagneticButton = ({ children, className = "", onClick, ...props }) => {
+const MagneticButton = ({ children, className = "", onClick, as = "button", href, target, rel, ...props }) => {
   const buttonRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -25,8 +25,11 @@ const MagneticButton = ({ children, className = "", onClick, ...props }) => {
     setIsHovered(true);
   };
 
+  const MotionComponent = as === "a" ? motion.a : motion.button;
+  const linkProps = as === "a" ? { href, target, rel } : {};
+
   return (
-    <motion.button
+    <MotionComponent
       ref={buttonRef}
       className={`relative overflow-hidden transition-all duration-300 ${className}`}
       onMouseMove={handleMouseMove}
@@ -36,6 +39,7 @@ const MagneticButton = ({ children, className = "", onClick, ...props }) => {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       data-cursor="pointer"
+      {...linkProps}
       {...props}
     >
       {/* Magnetic effect background */}
@@ -64,7 +68,7 @@ const MagneticButton = ({ children, className = "", onClick, ...props }) => {
         }}
         transition={{ duration: 0.4 }}
       />
-    </motion.button>
+    </MotionComponent>
   );
 };
 
