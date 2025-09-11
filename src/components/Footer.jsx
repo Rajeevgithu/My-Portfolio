@@ -13,13 +13,13 @@ const Footer = () => {
       icon: FaLinkedin,
       href: 'https://www.linkedin.com/in/rajeev-verma7276/',
       label: 'LinkedIn',
-      color: 'hover:text-[#00d4aa]'
+      color: 'hover:text-[#7C6CF6]'
     },
     {
       icon: FaEnvelope,
-      href: 'mailto:rv1175544@gmail.com',
+      href: 'mailto:rajeevverma4577@gmail.com',
       label: 'Email',
-      color: 'hover:text-[#00b894]'
+      color: 'hover:text-[#9B8AFF]'
     }
   ];
 
@@ -27,8 +27,8 @@ const Footer = () => {
     <footer className="bg-gradient-to-r from-background to-muted/20 dark:from-background dark:to-muted/10 border-t border-border py-12 px-6 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute bottom-10 left-10 w-32 h-32 bg-[#00d4aa] rounded-full mix-blend-multiply filter blur-xl opacity-10"></div>
-        <div className="absolute top-10 right-10 w-32 h-32 bg-[#00b894] rounded-full mix-blend-multiply filter blur-xl opacity-10"></div>
+        <div className="absolute bottom-10 left-10 w-32 h-32 bg-[#7C6CF6] rounded-full mix-blend-multiply filter blur-xl opacity-10"></div>
+        <div className="absolute top-10 right-10 w-32 h-32 bg-[#9B8AFF] rounded-full mix-blend-multiply filter blur-xl opacity-10"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -37,7 +37,7 @@ const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-2xl sm:text-3xl font-bold mb-4 bg-gradient-to-r from-foreground via-[#00d4aa] to-foreground bg-clip-text text-transparent"
+            className="text-2xl sm:text-3xl font-bold mb-4 bg-gradient-to-r from-foreground via-[#7C6CF6] to-[#9B8AFF] bg-clip-text text-transparent"
           >
             Rajeev Verma
           </motion.h3>
@@ -86,7 +86,7 @@ const Footer = () => {
         >
           <p className="text-muted-foreground text-sm">
             © 2024 Rajeev Verma. Made with{' '}
-            <FaHeart className="inline text-red-500 mx-1" />
+            <FaHeart className="inline text-purple-500 mx-1" />
             {' '}and React
           </p>
         </motion.div>
@@ -96,3 +96,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

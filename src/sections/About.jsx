@@ -5,14 +5,32 @@ import profile from '../assets/Profile.jpg';
 
 const About = () => {
   const skills = [
-    { name: 'React', level: 90, color: '#61DAFB' },
-    { name: 'Vite', level: 85, color: '#3178C6' },
-    { name: 'Node.js', level: 85, color: '#339933' },
-    { name: 'MongoDB', level: 80, color: '#47A248' },
-    { name: 'JavaScript', level: 95, color: '#F7DF1E' },
-    { name: 'Tailwind CSS', level: 90, color: '#06B6D4' },
-    { name: 'Express.js', level: 85, color: '#000000' },
-    { name: 'Git', level: 80, color: '#F05032' },
+    // Frontend Skills
+    { name: 'React.js', level: 90, color: '#61DAFB' },
+    { name: 'Next.js', level: 65, color: '#000000' },
+    { name: 'Vite', level: 85, color: '#646CFF' },
+    { name: 'Tailwind CSS', level: 90, color: '#38BDF8' },
+    { name: 'HTML', level: 95, color: '#E34C26' },
+    { name: 'CSS', level: 90, color: '#264de4' },
+    { name: 'JavaScript', level: 95, color: '#F0DB4F' },
+    
+    // Backend Skills
+    { name: 'Node.js', level: 85, color: '#3C873A' },
+    { name: 'Express.js', level: 85, color: '#fff' },
+    { name: 'Django', level: 70, color: '#092E20' },
+    { name: 'Python', level: 80, color: '#3776AB' },
+    
+    // Programming Languages
+    { name: 'C', level: 75, color: '#A8B9CC' },
+    
+    // Databases
+    { name: 'MongoDB', level: 80, color: '#4DB33D' },
+    { name: 'MySQL', level: 75, color: '#4479A1' },
+    
+    // Cloud/Tools
+    { name: 'AWS', level: 70, color: '#FF9900' },
+    { name: 'Ubuntu', level: 65, color: '#E95420' },
+    { name: 'Git', level: 80, color: '#F1502F' },
   ];
 
   const containerVariants = {
@@ -88,14 +106,14 @@ const About = () => {
           whileInView={{ scale: 1, opacity: 0.1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="absolute top-10 sm:top-20 right-10 sm:right-20 w-32 h-32 sm:w-64 sm:h-64 bg-[#00d4aa] rounded-full mix-blend-multiply filter blur-xl animate-blob"
+          className="absolute top-10 sm:top-20 right-10 sm:right-20 w-32 h-32 sm:w-64 sm:h-64 bg-[#7C6CF6] rounded-full mix-blend-multiply filter blur-xl animate-blob"
         />
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 0.1 }}
           transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-32 h-32 sm:w-64 sm:h-64 bg-[#00b894] rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"
+          className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-32 h-32 sm:w-64 sm:h-64 bg-[#9B8AFF] rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"
         />
       </div>
 
@@ -109,7 +127,7 @@ const About = () => {
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-foreground via-[#00d4aa] to-foreground bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-foreground via-[#7C6CF6] to-[#9B8AFF] bg-clip-text text-transparent">
               About Me
             </span>
           </h2>
@@ -118,7 +136,7 @@ const About = () => {
             whileInView={{ width: "100px" }}
             transition={{ duration: 1, delay: 0.5 }}
             viewport={{ once: true }}
-            className="w-16 sm:w-24 h-1 bg-gradient-to-r from-[#00d4aa] to-[#00b894] mx-auto rounded-full"
+            className="w-16 sm:w-24 h-1 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] mx-auto rounded-full"
           />
         </motion.div>
 
@@ -131,7 +149,7 @@ const About = () => {
                 whileInView={{ scale: 1, rotate: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-r from-[#00d4aa] to-[#00b894] p-1"
+                className="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] p-1"
               >
                 <img
                   src={profile}
@@ -144,7 +162,7 @@ const About = () => {
                 whileInView={{ scale: 1, rotate: 0 }}
                 transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="absolute -bottom-2 sm:-bottom-4 -right-2 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-[#00d4aa] to-[#00b894] rounded-full flex items-center justify-center shadow-lg"
+                className="absolute -bottom-2 sm:-bottom-4 -right-2 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] rounded-full flex items-center justify-center shadow-lg"
               >
                 <span className="text-lg sm:text-2xl">👨‍💻</span>
               </motion.div>
@@ -159,7 +177,7 @@ const About = () => {
                 variants={socialVariants}
                 whileHover="hover"
                 whileTap="tap"
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-[#00d4aa] to-[#00b894] rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300"
               >
                 <FaGithub size={16} className="sm:w-5 sm:h-5" />
               </motion.a>
@@ -168,7 +186,7 @@ const About = () => {
                 variants={socialVariants}
                 whileHover="hover"
                 whileTap="tap"
-                className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-[#00b894] to-[#00a085] rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300"
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-[#9B8AFF] to-[#8B7CF6] rounded-full flex items-center justify-center text-white hover:shadow-lg transition-all duration-300"
               >
                 <FaEnvelope size={16} className="sm:w-5 sm:h-5" />
               </motion.a>
@@ -190,7 +208,7 @@ const About = () => {
           <motion.div variants={itemVariants} className="space-y-4 sm:space-y-6">
             <div className="space-y-3 sm:space-y-4">
               <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
-                Passionate <span className="text-[#00d4aa]">Full-Stack Developer</span>
+                Passionate <span className="text-[#7C6CF6]">Full-Stack Developer</span>
               </h3>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                 Hello! I'm <span className="text-foreground font-semibold">Rajeev Verma</span>, a creative and detail-oriented 
@@ -198,8 +216,8 @@ const About = () => {
                 and love turning complex problems into simple, beautiful solutions.
               </p>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                With expertise in <span className="text-[#00d4aa] font-semibold">React</span>, <span className="text-[#00d4aa] font-semibold">Node.js</span>, 
-                and <span className="text-[#00d4aa] font-semibold">MongoDB</span>, I create scalable applications that 
+                With expertise in <span className="text-[#7C6CF6] font-semibold">React</span>, <span className="text-[#7C6CF6] font-semibold">Node.js</span>, 
+                and <span className="text-[#7C6CF6] font-semibold">MongoDB</span>, I create scalable applications that 
                 deliver outstanding user experiences. My approach combines technical excellence with creative problem-solving.
               </p>
             </div>
@@ -213,7 +231,7 @@ const About = () => {
                 viewport={{ once: true }}
                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-3 sm:p-4 hover:bg-white/10 transition-all duration-300"
               >
-                <div className="text-xl sm:text-2xl font-bold text-[#00d4aa]">6+</div>
+                <div className="text-xl sm:text-2xl font-bold text-[#7C6CF6]">6+</div>
                 <div className="text-gray-300 text-sm sm:text-base">Months Experience</div>
               </motion.div>
               <motion.div
@@ -223,7 +241,7 @@ const About = () => {
                 viewport={{ once: true }}
                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-3 sm:p-4 hover:bg-white/10 transition-all duration-300"
               >
-                <div className="text-xl sm:text-2xl font-bold text-[#00d4aa]">6+</div>
+                <div className="text-xl sm:text-2xl font-bold text-[#7C6CF6]">6+</div>
                 <div className="text-gray-300 text-sm sm:text-base">Projects Completed</div>
               </motion.div>
             </div>
@@ -233,7 +251,7 @@ const About = () => {
         {/* Skills Section */}
         <motion.div variants={itemVariants} className="mt-16 sm:mt-20">
           <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
-            <span className="bg-gradient-to-r from-white to-[#00d4aa] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-white to-[#7C6CF6] bg-clip-text text-transparent">
               Technical Skills
             </span>
           </h3>
@@ -251,13 +269,13 @@ const About = () => {
               >
                 <div className="flex justify-between items-center">
                   <span className="text-white font-medium text-sm sm:text-base">{skill.name}</span>
-                  <span className="text-[#00d4aa] font-semibold text-sm sm:text-base">{skill.level}%</span>
+                  <span className="text-[#7C6CF6] font-semibold text-sm sm:text-base">{skill.level}%</span>
                 </div>
                 <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
                   <motion.div
                     custom={skill.level}
                     variants={progressVariants}
-                    className="h-2 rounded-full bg-gradient-to-r from-[#00d4aa] to-[#00b894]"
+                    className="h-2 rounded-full bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF]"
                     style={{ backgroundColor: skill.color }}
                   />
                 </div>

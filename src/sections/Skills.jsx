@@ -19,19 +19,19 @@ const Skills = () => {
 
   const categorizedSkills = {
     frontend: techStack.filter(skill => 
-      ['React', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'HTML', 'CSS', 'JavaScript'].includes(skill.name)
+      ['React.js', 'Next.js', 'Vite', 'Tailwind CSS', 'HTML', 'CSS', 'JavaScript'].includes(skill.name)
     ),
     backend: techStack.filter(skill => 
       ['Node.js', 'Express.js', 'Django', 'Python'].includes(skill.name)
     ),
     database: techStack.filter(skill => 
-      ['MongoDB', 'PostgreSQL', 'MySQL'].includes(skill.name)
+      ['MongoDB', 'MySQL'].includes(skill.name)
     ),
     mobile: techStack.filter(skill => 
       ['React Native', 'Flutter'].includes(skill.name)
     ),
     tools: techStack.filter(skill => 
-      ['Git', 'Docker', 'AWS', 'Figma', 'Postman', 'VS Code'].includes(skill.name)
+      ['Git', 'AWS', 'Ubuntu', 'C'].includes(skill.name)
     )
   };
 
@@ -59,8 +59,8 @@ const Skills = () => {
     <section id="skills" className="min-h-screen w-full bg-gradient-to-br from-background via-muted/20 to-background dark:from-background dark:via-muted/10 dark:to-background text-foreground px-6 py-20 md:px-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-[#00d4aa] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
-        <div className="absolute bottom-20 left-20 w-64 h-64 bg-[#00b894] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-20 right-20 w-64 h-64 bg-[#7C6CF6] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+        <div className="absolute bottom-20 left-20 w-64 h-64 bg-[#9B8AFF] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
       </div>
 
       <motion.div
@@ -73,14 +73,14 @@ const Skills = () => {
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-foreground via-[#00d4aa] to-foreground bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-foreground via-[#7C6CF6] to-[#9B8AFF] bg-clip-text text-transparent">
               Skills & Technologies
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             A comprehensive collection of technologies and tools I've mastered through years of development experience.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00d4aa] to-[#00b894] mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] mx-auto rounded-full"></div>
         </motion.div>
 
         {/* Category Filter */}
@@ -93,7 +93,7 @@ const Skills = () => {
               whileTap={{ scale: 0.95 }}
               className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 border-2 ${
                 activeCategory === category.id
-                  ? 'bg-gradient-to-r from-[#00d4aa] to-[#00b894] text-white border-[#00d4aa] shadow-lg'
+                  ? 'bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] text-white border-[#7C6CF6] shadow-lg'
                   : 'bg-muted/50 text-muted-foreground border-border hover:bg-muted hover:border-border/70'
               }`}
             >
@@ -141,17 +141,17 @@ const Skills = () => {
         <motion.div variants={itemVariants} className="mt-20">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-muted/50 backdrop-blur-sm border border-border rounded-xl p-6 text-center">
-              <div className="text-4xl font-bold text-[#00d4aa] mb-2">12+</div>
+              <div className="text-4xl font-bold text-[#7C6CF6] mb-2">17+</div>
               <div className="text-foreground">Technologies</div>
               <p className="text-sm text-muted-foreground mt-2">Mastered across different domains</p>
             </div>
             <div className="bg-muted/50 backdrop-blur-sm border border-border rounded-xl p-6 text-center">
-              <div className="text-4xl font-bold text-[#00d4aa] mb-2">6+</div>
+              <div className="text-4xl font-bold text-[#7C6CF6] mb-2">6+</div>
               <div className="text-foreground">Months Experience</div>
               <p className="text-sm text-muted-foreground mt-2">Building real-world applications</p>
             </div>
             <div className="bg-muted/50 backdrop-blur-sm border border-border rounded-xl p-6 text-center">
-              <div className="text-4xl font-bold text-[#00d4aa] mb-2">6+</div>
+              <div className="text-4xl font-bold text-[#7C6CF6] mb-2">6+</div>
               <div className="text-foreground">Projects Completed</div>
               <p className="text-sm text-muted-foreground mt-2">Using various tech stacks</p>
             </div>
@@ -169,16 +169,16 @@ const Skills = () => {
               Currently exploring new frameworks and tools to stay ahead of the curve.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <span className="px-4 py-2 bg-[#00d4aa]/20 text-[#00d4aa] rounded-full text-sm border border-[#00d4aa]/30">
+              <span className="px-4 py-2 bg-[#7C6CF6]/20 text-[#7C6CF6] rounded-full text-sm border border-[#7C6CF6]/30">
                 Vite + React
               </span>
-              <span className="px-4 py-2 bg-[#00d4aa]/20 text-[#00d4aa] rounded-full text-sm border border-[#00d4aa]/30">
+              <span className="px-4 py-2 bg-[#7C6CF6]/20 text-[#7C6CF6] rounded-full text-sm border border-[#7C6CF6]/30">
                 REST API
               </span>
-              <span className="px-4 py-2 bg-[#00d4aa]/20 text-[#00d4aa] rounded-full text-sm border border-[#00d4aa]/30">
+              <span className="px-4 py-2 bg-[#7C6CF6]/20 text-[#7C6CF6] rounded-full text-sm border border-[#7C6CF6]/30">
                 Express.js
               </span>
-              <span className="px-4 py-2 bg-[#00d4aa]/20 text-[#00d4aa] rounded-full text-sm border border-[#00d4aa]/30">
+              <span className="px-4 py-2 bg-[#7C6CF6]/20 text-[#7C6CF6] rounded-full text-sm border border-[#7C6CF6]/30">
                 MongoDB Aggregation
               </span>
         </div>

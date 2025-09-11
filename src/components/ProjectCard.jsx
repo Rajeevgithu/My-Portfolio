@@ -70,7 +70,7 @@ const ProjectCard = ({ title, description, tech, github, demo, image, featured }
       whileInView="visible"
       whileHover="hover"
       viewport={{ once: true }}
-      className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-500 hover:shadow-xl hover:shadow-[#00d4aa]/10"
+      className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-500 hover:shadow-xl hover:shadow-[#7C6CF6]/10"
     >
       {/* Featured Badge */}
       {featured && (
@@ -81,7 +81,7 @@ const ProjectCard = ({ title, description, tech, github, demo, image, featured }
           viewport={{ once: true }}
           className="absolute top-2 sm:top-3 right-2 sm:right-3 z-10"
         >
-          <div className="bg-gradient-to-r from-[#00d4aa] to-[#00b894] text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg">
+          <div className="bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg">
             <FaStar size={8} className="sm:w-2 sm:h-2" />
             <span className="hidden sm:inline">Featured</span>
             <span className="sm:hidden">★</span>
@@ -112,7 +112,7 @@ const ProjectCard = ({ title, description, tech, github, demo, image, featured }
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
-          className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-[#00d4aa] transition-colors duration-300"
+          className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-[#7C6CF6] transition-colors duration-300"
         >
           {title}
         </motion.h3>
@@ -137,7 +137,7 @@ const ProjectCard = ({ title, description, tech, github, demo, image, featured }
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="px-2 py-1 bg-[#00d4aa]/20 text-[#00d4aa] text-xs rounded-full border border-[#00d4aa]/30 font-medium hover:bg-[#00d4aa]/30 transition-colors duration-200"
+              className="px-2 py-1 bg-[#7C6CF6]/20 text-[#7C6CF6] text-xs rounded-full border border-[#7C6CF6]/30 font-medium hover:bg-[#7C6CF6]/30 transition-colors duration-200"
             >
               {technology}
             </motion.span>
@@ -151,7 +151,7 @@ const ProjectCard = ({ title, description, tech, github, demo, image, featured }
             href={github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-1 bg-gradient-to-r from-[#00d4aa] to-[#00b894] text-white py-2 px-3 rounded-lg font-medium hover:shadow-lg hover:shadow-[#00d4aa]/25 transition-all duration-300 border border-[#00d4aa]/20 text-xs"
+            className="flex-1 flex items-center justify-center gap-1 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] text-white py-2 px-3 rounded-lg font-medium hover:shadow-lg hover:shadow-[#7C6CF6]/25 transition-all duration-300 border border-[#7C6CF6]/20 text-xs"
           >
             <FaGithub size={12} className="sm:w-3 sm:h-3" />
             <span className="hidden sm:inline">Code</span>
@@ -164,7 +164,7 @@ const ProjectCard = ({ title, description, tech, github, demo, image, featured }
               href={demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-1 bg-transparent text-white py-2 px-3 rounded-lg font-medium border border-[#00d4aa] hover:bg-[#00d4aa]/10 transition-all duration-300 text-xs"
+              className="flex-1 flex items-center justify-center gap-1 bg-transparent text-white py-2 px-3 rounded-lg font-medium border border-[#7C6CF6] hover:bg-[#7C6CF6]/10 transition-all duration-300 text-xs"
             >
               <FaExternalLinkAlt size={12} className="sm:w-3 sm:h-3" />
               <span className="hidden sm:inline">Demo</span>
@@ -179,7 +179,7 @@ const ProjectCard = ({ title, description, tech, github, demo, image, featured }
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
-        className="absolute inset-0 bg-gradient-to-r from-[#00d4aa]/5 to-[#00b894]/5 pointer-events-none"
+        className="absolute inset-0 bg-gradient-to-r from-[#7C6CF6]/5 to-[#9B8AFF]/5 pointer-events-none"
       />
     </motion.div>
   );

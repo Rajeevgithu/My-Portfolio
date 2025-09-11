@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { FaBars, FaTimes, FaDownload, FaSun, FaMoon } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-import resume from '../assets/Resume.pdf';
+import resume from '../assets/RajeevVerma_Resume.pdf';
 import { Button } from "@/components/ui/button";
 import useThemeStore from "@/context/store";
 
@@ -46,7 +46,7 @@ const Navbar = () => {
           whileHover={{ scale: 1.05 }}
           className="text-xl sm:text-2xl md:text-3xl font-bold cursor-pointer"
         >
-          <Link to="home" smooth duration={500} className="bg-gradient-to-r from-foreground via-[#00d4aa] to-foreground bg-clip-text text-transparent">
+          <Link to="home" smooth duration={500} className="bg-gradient-to-r from-foreground via-[#7C6CF6] to-[#9B8AFF] bg-clip-text text-transparent">
             Rajeev | Dev
           </Link>
         </motion.h1>
@@ -64,11 +64,11 @@ const Navbar = () => {
                 smooth
                 duration={500}
                 spy
-                activeClass="text-[#00d4aa]"
-                className="text-sm xl:text-base font-medium text-foreground hover:text-[#00d4aa] cursor-pointer transition duration-300 relative group"
+                activeClass="text-[#7C6CF6]"
+                className="text-sm xl:text-base font-medium text-foreground hover:text-[#7C6CF6] cursor-pointer transition duration-300 relative group"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00d4aa] to-[#00b894] group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] group-hover:w-full transition-all duration-300"></span>
               </Link>
             </motion.div>
           ))}
@@ -78,10 +78,10 @@ const Navbar = () => {
             href={resume}
             target="_blank"
             rel="noreferrer"
-            download
+            download="RajeevVerma_Resume.pdf"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="ml-2 px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-semibold rounded-lg bg-gradient-to-r from-[#00d4aa] to-[#00b894] text-white hover:shadow-lg hover:shadow-[#00d4aa]/25 transition-all duration-300 border border-[#00d4aa]/20 flex items-center gap-2"
+            className="ml-2 px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-semibold rounded-lg bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] text-white hover:shadow-lg hover:shadow-[#7C6CF6]/25 transition-all duration-300 border border-[#7C6CF6]/20 flex items-center gap-2"
           >
             <FaDownload size={12} className="sm:w-3 sm:h-3" />
             <span className="hidden sm:inline">Resume</span>
@@ -134,7 +134,7 @@ const Navbar = () => {
                 className="fixed top-0 right-0 w-80 h-screen bg-background/95 backdrop-blur-lg border-l border-border p-6 lg:hidden"
               >
                 <div className="flex justify-between items-center mb-8">
-                  <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-foreground via-[#00d4aa] to-foreground bg-clip-text text-transparent">
+                  <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-foreground via-[#7C6CF6] to-[#9B8AFF] bg-clip-text text-transparent">
                     Rajeev | Dev
                   </h2>
                   <motion.button
@@ -161,7 +161,7 @@ const Navbar = () => {
                         duration={500}
                         spy
                         onClick={toggleNav}
-                        className="text-foreground text-lg sm:text-xl font-medium capitalize hover:text-[#00d4aa] transition-colors duration-300 block py-3 px-4 rounded-lg hover:bg-muted/50"
+                        className="text-foreground text-lg sm:text-xl font-medium capitalize hover:text-[#7C6CF6] transition-colors duration-300 block py-3 px-4 rounded-lg hover:bg-muted/50"
                       >
                         {link.label}
                       </Link>
@@ -194,13 +194,13 @@ const Navbar = () => {
                     href={resume}
                     target="_blank"
                     rel="noreferrer"
-                    download
+                    download="RajeevVerma_Resume.pdf"
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: (navLinks.length + 1) * 0.1 }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="mt-8 w-full px-6 py-4 text-sm font-semibold rounded-lg bg-gradient-to-r from-[#00d4aa] to-[#00b894] text-white hover:shadow-lg transition-all duration-300 border border-[#00d4aa]/20 flex items-center justify-center gap-3"
+                    className="mt-8 w-full px-6 py-4 text-sm font-semibold rounded-lg bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] text-white hover:shadow-lg transition-all duration-300 border border-[#7C6CF6]/20 flex items-center justify-center gap-3"
                   >
                     <FaDownload size={16} />
                     Download Resume

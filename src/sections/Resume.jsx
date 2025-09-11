@@ -29,8 +29,14 @@ const Resume = () => {
       institution: 'University Of Mumbai',
       period: '2021 - 2025',
       description: 'Graduated with distinction and 8.02 CGPA. Specialized in software engineering and web development technologies.',
-      achievements: ['Participant – Smart India Hackathon 2025 (Developed Deepfake Detection System using pretrained AI/ML models)',
-]
+      achievements: ['Participant – Smart India Hackathon 2025 (Developed Deepfake Detection System using pretrained AI/ML models)']
+    },
+    {
+      degree: 'HSC (Higher Secondary Certificate) - Science Stream',
+      institution: 'Maharashtra State Board',
+      period: '2019 - 2021',
+      description: 'Completed Higher Secondary Education with 68.17% marks. Focused on Science subjects including Physics, Chemistry, Mathematics, and Information Technology.',
+      achievements: ['Secured 68.17% in HSC examination', 'Active participation in science exhibitions and competitions']
     },
     {
       degree: 'Full Stack Web Development',
@@ -73,8 +79,8 @@ const Resume = () => {
     <section id="resume" className="min-h-screen w-full bg-gradient-to-br from-background via-muted/20 to-background dark:from-background dark:via-muted/10 dark:to-background text-foreground px-6 py-20 md:px-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-[#00d4aa] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 bg-[#00b894] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 bg-[#7C6CF6] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-[#9B8AFF] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
       </div>
 
       <motion.div
@@ -87,14 +93,14 @@ const Resume = () => {
         {/* Section Header */}
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-foreground via-[#00d4aa] to-foreground bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-foreground via-[#7C6CF6] to-[#9B8AFF] bg-clip-text text-transparent">
               Resume
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             My professional journey, skills, and achievements. Download my resume for a detailed overview.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00d4aa] to-[#00b894] mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] mx-auto rounded-full"></div>
         </motion.div>
 
         {/* Download Section */}
@@ -102,20 +108,20 @@ const Resume = () => {
           <div className="bg-muted/50 backdrop-blur-sm border border-border rounded-2xl p-8 max-w-2xl mx-auto">
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <motion.a
-                href="/Resume.pdf"
-                download="Rajeev_Verma_Resume.pdf"
+                href="/RajeevVerma_Resume.pdf"
+                download="RajeevVerma_Resume.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#00d4aa] to-[#00b894] text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border border-[#00d4aa]/20"
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border border-[#7C6CF6]/20"
               >
                 <FaDownload size={18} />
                 Download Resume
               </motion.a>
               <motion.button
-                onClick={() => window.open('/Resume.pdf', '_blank', 'title=Rajeev Verma Resume')}
+                onClick={() => window.open('/RajeevVerma_Resume.pdf', '_blank', 'title=Rajeev Verma Resume')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 bg-transparent text-foreground px-8 py-4 rounded-lg font-semibold border-2 border-[#00d4aa] hover:bg-[#00d4aa]/10 transition-all duration-300"
+                className="inline-flex items-center gap-3 bg-transparent text-foreground px-8 py-4 rounded-lg font-semibold border-2 border-[#7C6CF6] hover:bg-[#7C6CF6]/10 transition-all duration-300"
               >
                 <FaEye size={18} />
                 Preview Resume
@@ -139,7 +145,7 @@ const Resume = () => {
               whileTap={{ scale: 0.95 }}
               className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 border-2 ${
                 activeTab === tab.id
-                  ? 'bg-gradient-to-r from-[#00d4aa] to-[#00b894] text-white border-[#00d4aa] shadow-lg'
+                  ? 'bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] text-white border-[#7C6CF6] shadow-lg'
                   : 'bg-muted/50 text-muted-foreground border-border hover:bg-muted hover:border-border/70'
               }`}
             >
@@ -171,7 +177,7 @@ const Resume = () => {
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
                       <h3 className="text-xl font-bold text-foreground mb-1">{exp.title}</h3>
-                      <p className="text-[#00d4aa] font-medium">{exp.company}</p>
+                      <p className="text-[#7C6CF6] font-medium">{exp.company}</p>
                     </div>
                     <span className="text-muted-foreground text-sm md:text-base mt-2 md:mt-0">{exp.period}</span>
                   </div>
@@ -180,7 +186,7 @@ const Resume = () => {
                     {exp.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="px-3 py-1 bg-[#00d4aa]/20 text-[#00d4aa] text-sm rounded-full border border-[#00d4aa]/30"
+                        className="px-3 py-1 bg-[#7C6CF6]/20 text-[#7C6CF6] text-sm rounded-full border border-[#7C6CF6]/30"
                       >
                         {skill}
                       </span>
@@ -205,7 +211,7 @@ const Resume = () => {
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
                       <h3 className="text-xl font-bold text-foreground mb-1">{edu.degree}</h3>
-                      <p className="text-[#00d4aa] font-medium">{edu.institution}</p>
+                      <p className="text-[#7C6CF6] font-medium">{edu.institution}</p>
                     </div>
                     <span className="text-muted-foreground text-sm md:text-base mt-2 md:mt-0">{edu.period}</span>
                   </div>
@@ -213,7 +219,7 @@ const Resume = () => {
                   <div className="space-y-2">
                     {edu.achievements.map((achievement, achievementIndex) => (
                       <div key={achievementIndex} className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-[#00d4aa] rounded-full"></div>
+                        <div className="w-2 h-2 bg-[#7C6CF6] rounded-full"></div>
                         <span className="text-muted-foreground text-sm">{achievement}</span>
                       </div>
                     ))}
@@ -245,7 +251,7 @@ const Resume = () => {
                             whileInView={{ width: `${Math.random() * 40 + 60}%` }}
                             transition={{ duration: 1, delay: skillIndex * 0.1 }}
                             viewport={{ once: true }}
-                            className="h-full bg-gradient-to-r from-[#00d4aa] to-[#00b894] rounded-full"
+                            className="h-full bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] rounded-full"
                           />
                         </div>
                       </div>
@@ -271,7 +277,7 @@ const Resume = () => {
                     <h3 className="text-lg font-bold text-foreground mb-1">{cert.name}</h3>
                     <p className="text-muted-foreground">{cert.issuer}</p>
                   </div>
-                  <span className="text-[#00d4aa] font-semibold mt-2 sm:mt-0">{cert.year}</span>
+                  <span className="text-[#7C6CF6] font-semibold mt-2 sm:mt-0">{cert.year}</span>
                 </motion.div>
               ))}
             </div>

@@ -54,8 +54,8 @@ const Contact = () => {
     <section id="contact" className="min-h-screen w-full bg-gradient-to-br from-background via-muted/20 to-background dark:from-background dark:via-muted/10 dark:to-background text-foreground px-6 py-20 md:px-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-[#00d4aa] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
-        <div className="absolute bottom-20 right-20 w-64 h-64 bg-[#00b894] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 bg-[#7C6CF6] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+        <div className="absolute bottom-20 right-20 w-64 h-64 bg-[#9B8AFF] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
       </div>
 
       <motion.div
@@ -68,14 +68,14 @@ const Contact = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-foreground via-[#00d4aa] to-foreground bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-foreground via-[#7C6CF6] to-[#9B8AFF] bg-clip-text text-transparent">
               Let's Connect
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to bring your ideas to life? Let's discuss your project and create something amazing together.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00d4aa] to-[#00b894] mx-auto mt-6 rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] mx-auto mt-6 rounded-full"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
@@ -89,7 +89,7 @@ const Contact = () => {
           >
             <div>
               <h3 className="text-3xl font-bold mb-6 text-foreground">
-                Get in <span className="text-[#00d4aa]">Touch</span>
+                Get in <span className="text-[#7C6CF6]">Touch</span>
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
@@ -108,7 +108,7 @@ const Contact = () => {
                   viewport={{ once: true }}
                   className="flex items-center gap-4 p-4 bg-muted/50 backdrop-blur-sm border border-border rounded-lg hover:bg-muted transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-[#00d4aa] to-[#00b894] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <info.icon size={20} className="text-white" />
                   </div>
                   <div>
@@ -161,7 +161,7 @@ const Contact = () => {
                   <label className="block text-foreground font-medium mb-2">Name</label>
                   <input
                     type="text"
-                    className="w-full p-4 rounded-lg bg-muted/50 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] border-border focus:border-[#00d4aa]"
+                    className="w-full p-4 rounded-lg bg-muted/50 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7C6CF6] border-border focus:border-[#7C6CF6]"
                     placeholder="Your full name"
                     name="name"
                     required
@@ -172,7 +172,7 @@ const Contact = () => {
                   <label className="block text-foreground font-medium mb-2">Email</label>
                   <input
                     type="email"
-                    className="w-full p-4 rounded-lg bg-muted/50 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] border-border focus:border-[#00d4aa]"
+                    className="w-full p-4 rounded-lg bg-muted/50 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7C6CF6] border-border focus:border-[#7C6CF6]"
                     placeholder="your.email@example.com"
                     name="email"
                     required
@@ -195,7 +195,7 @@ const Contact = () => {
                 <label className="block text-foreground font-medium mb-2">Message</label>
                 <textarea
                   rows="6"
-                  className="w-full p-4 rounded-lg bg-muted/50 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#00d4aa] resize-none border-border focus:border-[#00d4aa]"
+                  className="w-full p-4 rounded-lg bg-muted/50 border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7C6CF6] resize-none border-border focus:border-[#7C6CF6]"
                   placeholder="Tell me about your project..."
                   name="message"
                   required
@@ -206,7 +206,7 @@ const Contact = () => {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 px-8 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center gap-3 bg-gradient-to-r from-[#00d4aa] to-[#00b894] hover:shadow-lg hover:shadow-[#00d4aa]/25"
+                className="w-full py-4 px-8 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center gap-3 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] hover:shadow-lg hover:shadow-[#7C6CF6]/25"
               >
                     <FaPaperPlane size={18} />
                     Send Message

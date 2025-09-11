@@ -47,7 +47,7 @@ const Hero = () => {
   const buttonVariants = {
     hover: {
       scale: 1.05,
-      boxShadow: "0 20px 40px rgba(0, 212, 170, 0.3)",
+      boxShadow: "0 20px 40px rgba(124, 108, 246, 0.3)",
       transition: {
         duration: 0.3,
         ease: "easeOut",
@@ -69,19 +69,19 @@ const Hero = () => {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 0.1 }}
           transition={{ duration: 2, ease: "easeOut" }}
-          className="absolute top-10 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#00d4aa] rounded-full mix-blend-multiply filter blur-xl animate-blob"
+          className="absolute top-10 left-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#7C6CF6] rounded-full mix-blend-multiply filter blur-xl animate-blob"
         />
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 0.1 }}
           transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
-          className="absolute top-20 right-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#00b894] rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"
+          className="absolute top-20 right-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#9B8AFF] rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"
         />
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 0.1 }}
           transition={{ duration: 2, delay: 1, ease: "easeOut" }}
-          className="absolute -bottom-8 left-20 w-48 h-48 sm:w-72 sm:h-72 bg-[#00a085] rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"
+          className="absolute -bottom-8 left-20 w-48 h-48 sm:w-72 sm:h-72 bg-[#8B7CF6] rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"
         />
       </div>
 
@@ -106,13 +106,13 @@ const Hero = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-5 h-5 rounded-full bg-gradient-to-r from-[#00d4aa] to-[#00b894] shadow-lg"
+              className="w-5 h-5 rounded-full bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] shadow-lg"
             />
             <motion.div
               initial={{ height: 0 }}
               animate={{ height: "320px" }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="w-1 h-80 bg-gradient-to-b from-[#00d4aa] to-transparent rounded-full"
+              className="w-1 h-80 bg-gradient-to-b from-[#7C6CF6] to-transparent rounded-full"
             />
           </div>
 
@@ -124,7 +124,7 @@ const Hero = () => {
             className="text-center lg:text-left flex-1 max-w-2xl lg:max-w-none"
           >
             <motion.div variants={itemVariants} className="mb-2">
-              <span className="text-[#00d4aa] font-medium text-base sm:text-lg lg:text-xl">
+              <span className="text-[#7C6CF6] font-medium text-base sm:text-lg lg:text-xl">
                 Hello, I'm
               </span>
             </motion.div>
@@ -133,7 +133,7 @@ const Hero = () => {
               variants={itemVariants}
               className="text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-tight"
             >
-              <span className="bg-gradient-to-r from-foreground via-[#00d4aa] to-foreground bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-foreground via-[#7C6CF6] to-[#9B8AFF] bg-clip-text text-transparent">
                 Rajeev Verma
               </span>
             </motion.h1>
@@ -141,7 +141,7 @@ const Hero = () => {
             <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-muted-foreground">
                 <span className="mr-2">I'm a</span>
-                <span className="text-[#00d4aa] font-semibold">
+                <span className="text-[#7C6CF6] font-semibold">
                   <Typewriter
                     words={roles}
                     loop
@@ -171,14 +171,14 @@ const Hero = () => {
               <MagneticButton
                 as="a"
                 href="#projects"
-                className="px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#00d4aa] to-[#00b894] text-white font-semibold rounded-lg shadow-lg transition-all duration-300 border border-[#00d4aa]/20 text-sm sm:text-base text-center"
+                className="px-5 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] text-white font-semibold rounded-lg shadow-lg transition-all duration-300 border border-[#7C6CF6]/20 text-sm sm:text-base text-center"
               >
                 View My Work
               </MagneticButton>
               <MagneticButton
                 as="a"
                 href="#contact"
-                className="px-5 sm:px-6 py-2.5 sm:py-3 bg-transparent text-foreground font-semibold rounded-lg border-2 border-[#00d4aa] hover:bg-[#00d4aa]/10 transition-all duration-300 text-sm sm:text-base text-center"
+                className="px-5 sm:px-6 py-2.5 sm:py-3 bg-transparent text-foreground font-semibold rounded-lg border-2 border-[#7C6CF6] hover:bg-[#7C6CF6]/10 transition-all duration-300 text-sm sm:text-base text-center"
               >
                 Get In Touch
               </MagneticButton>
@@ -203,7 +203,7 @@ const Hero = () => {
                 repeat: Infinity,
                 repeatType: "loop",
               }}
-              className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r from-[#00d4aa] to-[#00b894] shadow-lg"
+              className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] shadow-lg"
             />
           </div>
           <motion.p
@@ -222,14 +222,14 @@ const Hero = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="w-16 h-16 lg:w-24 lg:h-24 border border-[#00d4aa] rounded-full"
+          className="w-16 h-16 lg:w-24 lg:h-24 border border-[#7C6CF6] rounded-full"
         />
       </div>
       <div className="absolute bottom-10 left-10 z-5 opacity-20 hidden lg:block">
         <motion.div
           animate={{ rotate: -360 }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="w-12 h-12 lg:w-20 lg:h-20 border border-[#00b894] rounded-full"
+          className="w-12 h-12 lg:w-20 lg:h-20 border border-[#9B8AFF] rounded-full"
         />
       </div>
     </section>
