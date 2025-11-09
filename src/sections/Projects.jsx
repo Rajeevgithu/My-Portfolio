@@ -12,11 +12,32 @@ import calender from '../assets/calender.png'
 import admybrand from '../assets/admybrand.png'
 import aiCrmAssistant from '../assets/ai-crm-assistant.png'
 import pressmart from '../assets/Pressmart.png'
+import Foddie from '../assets/Foddie.png'
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const projects = [
+    {
+  title: 'Foddie — Food Ordering App',
+  description:
+    'A modern and elegant Food Ordering Application built using Flutter, Firebase, and Cloudinary. Users can browse, order, and pay for food with wallet integration, while admins manage menus and orders in real-time.',
+  tech: [
+    'Flutter (Dart)',
+    'Firebase Firestore',
+    'Firebase Authentication',
+    'Cloudinary',
+    'SharedPreferences',
+    'flutter_dotenv',
+    'Stripe API'
+  ],
+  github: 'https://github.com/Rajeevgithu/flutter_food_ordering_app',
+  demo: 'https://fooddeliveryapp-ca9f5.web.app/',
+  image: Foddie, // replace this with your actual imported image variable
+  category: 'fullstack',
+  featured: true
+}
+,
     {
       title: 'Deepfake Detection Frontend',
       description: 'Advanced React-based frontend for detecting and visualizing deepfake content using TensorFlow.js. Features real-time analysis, interactive visualizations, and user-friendly interface.',
@@ -38,7 +59,7 @@ const Projects = () => {
       featured: true
     },
     {
-      title : 'ai-crm-assistant',
+      title : 'AI-CRM-Assistant',
       description : 'AI-powered CRM with real-time analytics, automated tasks, document analysis, chat, and lead pipeline — built with Next.js 15, TypeScript, Tailwind CSS, MongoDB, and OpenAI (GPT-3.5-turbo), deployed on Vercel.',
       tech : ['Next.js', 'TypeScript', 'Tailwind CSS', 'MongoDB', 'OpenAI'],
       github : 'https://github.com/Rajeevgithu/AI-CRM-Assistant',

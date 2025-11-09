@@ -8,8 +8,8 @@ const Hero = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
   const roles = [
+    "APP Developer",
     "MERN Stack Developer",
-    "Frontend Specialist",
     "Creative Problem Solver",
   ];
 
