@@ -189,10 +189,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- **Email**: rajeev@example.com
-- **LinkedIn**: [Your LinkedIn]
-- **GitHub**: [Your GitHub]
-- **Portfolio**: [Your Portfolio URL]
+- **Email**: rajeevverma4577@gmail.com
 
 ---
 
