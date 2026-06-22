@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-scroll';
+import { useLocation } from 'react-router-dom';
 import { FaBars, FaTimes, FaDownload, FaSun, FaMoon } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-import resume from '../assets/RajeevVerma_Resume.pdf';
-import { Button } from "@/components/ui/button";
-import useThemeStore from "@/context/store";
+import { SITE } from '@/constants/site';
+import useThemeStore from '@/context/store';
+import SectionLink, { isSectionActive } from '@/components/SectionLink';
 
 const navLinks = [
   { name: 'home', label: 'Home' },
   { name: 'about', label: 'About' },
+  { name: 'services', label: 'Services' },
   { name: 'projects', label: 'Projects' },
   { name: 'skills', label: 'Skills' },
   { name: 'resume', label: 'Resume' },
-  { name: 'contact', label: 'Contact' }
+  { name: 'contact', label: 'Contact' },
 ];
 
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,52 +32,45 @@ const Navbar = () => {
   const toggleNav = () => setNavOpen(!navOpen);
   const { theme, toggleTheme } = useThemeStore();
 
+  const linkClass = (name) =>
+    `text-sm xl:text-base font-medium cursor-pointer transition duration-300 relative group ${
+      isSectionActive(location.pathname, name)
+        ? 'text-[#7C6CF6]'
+        : 'text-foreground hover:text-[#7C6CF6]'
+    }`;
+
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-background/95 backdrop-blur-lg border-b border-border shadow-lg' 
+        scrolled
+          ? 'bg-background/95 backdrop-blur-lg border-b border-border shadow-lg'
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
-        {/* Logo */}
-        <motion.h1 
-          whileHover={{ scale: 1.05 }}
-          className="text-xl sm:text-2xl md:text-3xl font-bold cursor-pointer"
-        >
-          <Link to="home" smooth duration={500} className="bg-gradient-to-r from-foreground via-[#7C6CF6] to-[#9B8AFF] bg-clip-text text-transparent">
+        <motion.h1 whileHover={{ scale: 1.05 }} className="text-xl sm:text-2xl md:text-3xl font-bold cursor-pointer">
+          <SectionLink
+            to="home"
+            className="bg-gradient-to-r from-foreground via-[#7C6CF6] to-[#9B8AFF] bg-clip-text text-transparent"
+          >
             Rajeev | Dev
-          </Link>
+          </SectionLink>
         </motion.h1>
 
-        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navLinks.map((link) => (
-            <motion.div
-              key={link.name}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link
-                to={link.name}
-                smooth
-                duration={500}
-                spy
-                activeClass="text-[#7C6CF6]"
-                className="text-sm xl:text-base font-medium text-foreground hover:text-[#7C6CF6] cursor-pointer transition duration-300 relative group"
-              >
+            <motion.div key={link.name} whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
+              <SectionLink to={link.name} className={linkClass(link.name)}>
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] group-hover:w-full transition-all duration-300"></span>
-              </Link>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] group-hover:w-full transition-all duration-300" />
+              </SectionLink>
             </motion.div>
           ))}
 
-          {/* Resume Button */}
           <motion.a
-            href={resume}
+            href={SITE.resumePath}
             target="_blank"
             rel="noreferrer"
             download="RajeevVerma_Resume.pdf"
@@ -87,8 +82,7 @@ const Navbar = () => {
             <span className="hidden sm:inline">Resume</span>
             <span className="sm:hidden">CV</span>
           </motion.a>
-          
-          {/* Theme Toggle Button */}
+
           <motion.button
             onClick={toggleTheme}
             whileHover={{ scale: 1.1 }}
@@ -100,23 +94,23 @@ const Navbar = () => {
           </motion.button>
         </nav>
 
-        {/* Mobile Icon */}
         {!navOpen && (
-        <motion.div 
-          className="lg:hidden text-foreground text-xl sm:text-2xl cursor-pointer z-50 p-2" 
-          onClick={toggleNav}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
+          <motion.button
+            type="button"
+            className="lg:hidden text-foreground text-xl sm:text-2xl cursor-pointer z-50 p-2"
+            onClick={toggleNav}
+            aria-label="Open navigation menu"
+            aria-expanded={navOpen}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
             <FaBars />
-        </motion.div>
+          </motion.button>
         )}
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {navOpen && (
             <>
-              {/* Backdrop */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -124,8 +118,7 @@ const Navbar = () => {
                 onClick={toggleNav}
                 className="fixed inset-0 bg-background/50 backdrop-blur-sm lg:hidden"
               />
-              
-              {/* Menu */}
+
               <motion.div
                 initial={{ x: '100%' }}
                 animate={{ x: 0 }}
@@ -142,6 +135,7 @@ const Navbar = () => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className="text-foreground text-xl sm:text-2xl p-2"
+                    aria-label="Close navigation menu"
                   >
                     <FaTimes />
                   </motion.button>
@@ -155,20 +149,20 @@ const Navbar = () => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
                     >
-                      <Link
+                      <SectionLink
                         to={link.name}
-                        smooth
-                        duration={500}
-                        spy
                         onClick={toggleNav}
-                        className="text-foreground text-lg sm:text-xl font-medium capitalize hover:text-[#7C6CF6] transition-colors duration-300 block py-3 px-4 rounded-lg hover:bg-muted/50"
+                        className={`text-lg sm:text-xl font-medium capitalize transition-colors duration-300 block py-3 px-4 rounded-lg hover:bg-muted/50 ${
+                          isSectionActive(location.pathname, link.name)
+                            ? 'text-[#7C6CF6] bg-muted/50'
+                            : 'text-foreground hover:text-[#7C6CF6]'
+                        }`}
                       >
                         {link.label}
-                      </Link>
+                      </SectionLink>
                     </motion.div>
                   ))}
 
-                  {/* Mobile Theme Toggle */}
                   <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -189,9 +183,8 @@ const Navbar = () => {
                     </motion.button>
                   </motion.div>
 
-                  {/* Mobile Resume Button */}
                   <motion.a
-                    href={resume}
+                    href={SITE.resumePath}
                     target="_blank"
                     rel="noreferrer"
                     download="RajeevVerma_Resume.pdf"

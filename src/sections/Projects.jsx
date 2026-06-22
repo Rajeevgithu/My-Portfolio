@@ -1,6 +1,7 @@
 // src/sections/Projects.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ProjectCard from '../components/ProjectCard';
+import SectionLink from '../components/SectionLink';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaFilter } from 'react-icons/fa';
 import budgetTracker  from '../assets/budget-tracker.png'
@@ -22,6 +23,9 @@ const Projects = () => {
   title: 'Foddie — Food Ordering App',
   description:
     'A modern and elegant Food Ordering Application built using Flutter, Firebase, and Cloudinary. Users can browse, order, and pay for food with wallet integration, while admins manage menus and orders in real-time.',
+  problem: 'A food business needed an end-to-end ordering system with payments, admin control, and real-time order tracking.',
+  solution: 'Built a Flutter app with Firebase backend, Stripe wallet integration, Cloudinary media, and admin dashboard.',
+  outcome: 'Live web demo with full ordering flow, real-time menu management, and production-ready architecture.',
   tech: [
     'Flutter (Dart)',
     'Firebase Firestore',
@@ -33,7 +37,7 @@ const Projects = () => {
   ],
   github: 'https://github.com/Rajeevgithu/flutter_food_ordering_app',
   demo: 'https://fooddeliveryapp-ca9f5.web.app/',
-  image: Foddie, // replace this with your actual imported image variable
+  image: Foddie,
   category: 'fullstack',
   featured: true
 }
@@ -41,6 +45,9 @@ const Projects = () => {
     {
       title: 'Deepfake Detection Frontend',
       description: 'Advanced React-based frontend for detecting and visualizing deepfake content using TensorFlow.js. Features real-time analysis, interactive visualizations, and user-friendly interface.',
+      problem: 'Users needed a simple way to analyze media for potential deepfake manipulation without technical expertise.',
+      solution: 'Built a React frontend with TensorFlow.js for in-browser analysis and interactive result visualizations.',
+      outcome: 'Deployed live demo with real-time detection UI, used in Smart India Hackathon 2025 project.',
       tech: ['React', 'TensorFlow.js', 'Tailwind CSS', 'Framer Motion'],
       github: 'https://github.com/Rajeevgithu/Deepfake-Detection',
       demo: 'https://deepfake-detection-lh9w.vercel.app/',
@@ -51,6 +58,9 @@ const Projects = () => {
     {
       title: 'E-Commerce Platform',
       description: 'Full-stack e-commerce solution with advanced features including cart management, product filtering, user authentication, payment integration, and admin dashboard.',
+      problem: 'An online store needed cart, payments, user accounts, and admin product management in one platform.',
+      solution: 'Delivered a MERN stack app with Stripe payments, JWT auth, product filtering, and admin dashboard.',
+      outcome: 'Live deployed store with working checkout, auth, and admin panel — ready for real customers.',
       tech: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Stripe'],
       github: 'https://github.com/Rajeevgithu/E-Commerce-Website',
       demo: 'https://e-commerce-website-dsnj.vercel.app/',
@@ -61,6 +71,9 @@ const Projects = () => {
     {
       title : 'AI-CRM-Assistant',
       description : 'AI-powered CRM with real-time analytics, automated tasks, document analysis, chat, and lead pipeline — built with Next.js 15, TypeScript, Tailwind CSS, MongoDB, and OpenAI (GPT-3.5-turbo), deployed on Vercel.',
+      problem: 'Sales teams needed a single dashboard to manage leads, automate tasks, and get AI-powered insights.',
+      solution: 'Built a Next.js CRM with OpenAI integration, MongoDB pipeline, document analysis, and real-time analytics.',
+      outcome: 'Full CRM deployed on Vercel with AI chat, lead pipeline, and automated task workflows.',
       tech : ['Next.js', 'TypeScript', 'Tailwind CSS', 'MongoDB', 'OpenAI'],
       github : 'https://github.com/Rajeevgithu/AI-CRM-Assistant',
       demo : 'https://ai-crm-assistant-1.onrender.com/',
@@ -192,12 +205,11 @@ const Projects = () => {
         <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             <span className="bg-gradient-to-r from-foreground via-[#7C6CF6] to-[#9B8AFF] bg-clip-text text-transparent">
-              My Projects
+              Case Studies & Projects
             </span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
-            Explore my latest work and creative solutions. Each project represents a unique challenge 
-            and showcases different aspects of modern web development.
+            Real projects with live demos — tap featured cards to see problem, solution, and outcome.
           </p>
           <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] mx-auto rounded-full"></div>
         </motion.div>
@@ -238,7 +250,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group"
+              className="group h-full"
             >
               <ProjectCard {...project} />
             </motion.div>
@@ -264,21 +276,19 @@ const Projects = () => {
           className="text-center mt-16 sm:mt-20 px-4"
         >
           <div className="bg-muted/50 backdrop-blur-sm border border-border rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
               Have a project in mind?
             </h3>
-            <p className="text-gray-300 mb-6 text-sm sm:text-base">
+            <p className="text-muted-foreground mb-6 text-sm sm:text-base">
               Let's collaborate and bring your ideas to life. I'm always excited to work on new and challenging projects.
             </p>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+            <SectionLink
+              to="contact"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 border border-[#7C6CF6]/20 text-sm sm:text-base"
             >
               <FaExternalLinkAlt size={14} className="sm:w-4 sm:h-4" />
               Let's Work Together
-            </motion.a>
+            </SectionLink>
           </div>
         </motion.div>
       </motion.div>

@@ -6,12 +6,17 @@
 @theme {
   --font-poppins: 'Poppins', sans-serif;
   --color-primary: #0a0a0a;
-  --color-accent: #00d4aa;
+  --color-accent: #7C6CF6;
   --color-white: #ffffff;
 }
 
 body {
   @apply bg-background text-foreground font-poppins;
+}
+
+/* Keep Three.js canvas transparent in hero */
+#home canvas {
+  background: transparent !important;
 }
 
 /* Custom Animations */
@@ -61,12 +66,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #00d4aa, #00b894);
+  background: linear-gradient(to bottom, #7C6CF6, #9B8AFF);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #00b894, #00d4aa);
+  background: linear-gradient(to bottom, #9B8AFF, #7C6CF6);
 }
 
 /* Gradient text support */
@@ -89,7 +94,22 @@ html {
 
 /* Enhanced focus states */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-[#00d4aa] focus:ring-offset-2 focus:ring-offset-background;
+  @apply focus:outline-none focus:ring-2 focus:ring-[#7C6CF6] focus:ring-offset-2 focus:ring-offset-background;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-blob {
+    animation: none !important;
+  }
 }
 
 @theme inline {

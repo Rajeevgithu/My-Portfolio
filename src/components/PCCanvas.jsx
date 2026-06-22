@@ -6,7 +6,6 @@ import {
   useGLTF,
   Html,
   useProgress,
-  Environment,
   PresentationControls,
 } from "@react-three/drei";
 
@@ -20,13 +19,13 @@ const CanvasLoader = () => {
         <div className="relative w-16 h-16 mb-4">
           <div className="absolute inset-0 border-4 border-gray-600 rounded-full"></div>
           <div
-            className="absolute inset-0 border-4 border-[#00d4aa] rounded-full"
+            className="absolute inset-0 border-4 border-[#7C6CF6] rounded-full"
             style={{
               clipPath: `polygon(0 0, ${progress}% 0, ${progress}% 100%, 0 100%)`,
             }}
           ></div>
         </div>
-        <span className="text-lg font-semibold text-[#00d4aa]">
+        <span className="text-lg font-semibold text-[#7C6CF6]">
           Loading 3D Model
         </span>
         <span className="mt-2 text-sm opacity-80">{progress.toFixed(0)}%</span>
@@ -62,7 +61,7 @@ const DesktopPC = ({ isMobile, isVisible, onLoad, onError, modelPosition = [0, -
       <hemisphereLight
         intensity={0.5}
         groundColor="#000000"
-        skyColor="#00d4aa"
+        skyColor="#7C6CF6"
       />
 
       {/* Main spotlight */}
@@ -82,7 +81,7 @@ const DesktopPC = ({ isMobile, isVisible, onLoad, onError, modelPosition = [0, -
         angle={0.1}
         penumbra={1}
         intensity={1.2}
-        color="#00d4aa"
+        color="#7C6CF6"
       />
 
       {/* Fill light */}
@@ -138,18 +137,18 @@ const PCCanvas = () => {
   };
 
   return (
-    <div className="w-full h-full relative">
+    <div className="w-full h-full relative bg-transparent">
       {isMobile ? (
         <div className="w-full h-full flex items-center justify-center">
-          <div className="text-center text-white opacity-60">
+          <div className="text-center text-muted-foreground opacity-60">
             <div className="text-6xl mb-4">💻</div>
             <p className="text-lg">Interactive 3D Model</p>
             <p className="text-sm opacity-80">Available on desktop</p>
           </div>
         </div>
-      ) : (
+      ) : hasError ? null : (
           <Canvas
-            frameloop="demand"
+            frameloop="always"
             shadows
             dpr={[1, 2]}
             camera={{ position: [0, 10, 45], fov: 25, near: 0.1, far: 2000 }}
@@ -158,10 +157,12 @@ const PCCanvas = () => {
               antialias: true,
               alpha: true,
             }}
-            style={{
-              backgroundColor: "transparent",
+            onCreated={({ gl, scene }) => {
+              gl.setClearColor(0x000000, 0);
+              scene.background = null;
             }}
-            className="cursor-grab active:cursor-grabbing transition-all duration-300"
+            style={{ background: 'transparent' }}
+            className="!bg-transparent cursor-grab active:cursor-grabbing transition-all duration-300"
             onError={handleModelError}
           >
             <Suspense fallback={<CanvasLoader />}>
@@ -194,7 +195,6 @@ const PCCanvas = () => {
                 />
               </PresentationControls>
             </Suspense>
-            <Environment preset="city" />
             <Preload all />
           </Canvas>
       )}

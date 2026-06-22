@@ -1,5 +1,6 @@
-// src/sections/Resume.jsx
 import React, { useState } from 'react';
+import { resumeSkillGroups } from '../constants/skills';
+import { SITE } from '../constants/site';
 import { motion } from 'framer-motion';
 import { FaDownload, FaEye, FaGraduationCap, FaBriefcase, FaAward, FaCode } from 'react-icons/fa';
 
@@ -9,18 +10,20 @@ const Resume = () => {
   const experience = [
     {
       title: 'Full Stack Developer',
-      company: 'Freelance',
-      period: 'May-25 - June-25',
-      description: 'Developed and maintained multiple web applications using React, Node.js, and MongoDB. Collaborated with clients to deliver high-quality, scalable solutions.',
-      skills: ['React + Vite', 'Node.js', 'MongoDB', 'Express.js', 'JavaScript']
+      company: 'Dharmik Vibes · Work from Home',
+      period: '2025 - Present',
+      description:
+        'Full-time remote developer building web applications and AI-powered chatbots. Work in an agile team using GitLab for version control and CI/CD, Jira for sprint planning, and ship production features with React, Node.js, and OpenAI integrations.',
+      skills: ['React', 'Node.js', 'OpenAI API', 'AI Chatbots', 'GitLab', 'Jira', 'MongoDB'],
     },
     {
       title: 'Full Stack Developer Intern',
       company: 'Infosys Springboard',
-      period: 'Jan-25 - Feb-25',
-      description: 'Developed a comprehensive budget tracking application using Django. Implemented database design, API development, and user authentication.',
-      skills: ['Django', 'Python', 'SQLite', 'Bootstrap', 'Chart.js']
-    }
+      period: 'Jan 2025 - Feb 2025',
+      description:
+        'Completed internship by developing a comprehensive budget tracking application using Django. Implemented database design, REST APIs, user authentication, and data visualizations.',
+      skills: ['Django', 'Python', 'SQLite', 'Bootstrap', 'Chart.js'],
+    },
   ];
 
   const education = [
@@ -47,17 +50,12 @@ const Resume = () => {
     }
   ];
 
-  const skills = [
-    { category: 'Frontend', items: ['React','Vite', 'JavaScript', 'Tailwind CSS', 'Framer Motion', 'Three.js'] },
-    { category: 'Backend', items: ['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'Django'] },
-    { category: 'Tools & Others', items: ['Git', 'Docker', 'AWS', 'Figma', 'Postman'] }
-  ];
-
   const certifications = [
     { name: 'MERN Stack Development', issuer: 'Udemy', year: '2024' },
     { name: 'React Advanced Concepts', issuer: 'Coursera', year: '2023' },
     { name: 'Node.js Backend Development', issuer: 'Udemy', year: '2024' },
-    { name: 'MongoDB Database Design', issuer: 'MongoDB University', year: '2025' }
+    { name: 'MongoDB Database Design', issuer: 'MongoDB University', year: '2025' },
+    { name: 'OpenAI API & AI Integrations', issuer: 'Project-based Learning', year: '2025' },
   ];
 
   const containerVariants = {
@@ -108,7 +106,7 @@ const Resume = () => {
           <div className="bg-muted/50 backdrop-blur-sm border border-border rounded-2xl p-8 max-w-2xl mx-auto">
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <motion.a
-                href="/RajeevVerma_Resume.pdf"
+                href={SITE.resumePath}
                 download="RajeevVerma_Resume.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -118,7 +116,7 @@ const Resume = () => {
                 Download Resume
               </motion.a>
               <motion.button
-                onClick={() => window.open('/RajeevVerma_Resume.pdf', '_blank', 'title=Rajeev Verma Resume')}
+                onClick={() => window.open(SITE.resumePath, '_blank', 'title=Rajeev Verma Resume')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-3 bg-transparent text-foreground px-8 py-4 rounded-lg font-semibold border-2 border-[#7C6CF6] hover:bg-[#7C6CF6]/10 transition-all duration-300"
@@ -230,8 +228,8 @@ const Resume = () => {
           )}
 
           {activeTab === 'skills' && (
-            <div className="grid md:grid-cols-3 gap-8">
-              {skills.map((skillGroup, index) => (
+            <div className="grid md:grid-cols-2 gap-8">
+              {resumeSkillGroups.map((skillGroup, index) => (
                 <motion.div
                   key={skillGroup.category}
                   initial={{ opacity: 0, y: 30 }}
@@ -243,13 +241,13 @@ const Resume = () => {
                   <h3 className="text-xl font-bold text-foreground mb-4 text-center">{skillGroup.category}</h3>
                   <div className="space-y-3">
                     {skillGroup.items.map((skill, skillIndex) => (
-                      <div key={skillIndex} className="flex items-center justify-between">
-                        <span className="text-muted-foreground">{skill}</span>
+                      <div key={skill.name} className="flex items-center justify-between">
+                        <span className="text-muted-foreground">{skill.name}</span>
                         <div className="w-20 h-2 bg-muted rounded-full overflow-hidden">
                           <motion.div
                             initial={{ width: 0 }}
-                            whileInView={{ width: `${Math.random() * 40 + 60}%` }}
-                            transition={{ duration: 1, delay: skillIndex * 0.1 }}
+                            whileInView={{ width: `${skill.level}%` }}
+                            transition={{ duration: 1, delay: skillIndex * 0.05 }}
                             viewport={{ once: true }}
                             className="h-full bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] rounded-full"
                           />

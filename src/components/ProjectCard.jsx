@@ -1,66 +1,38 @@
 // src/components/ProjectCard.jsx
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaStar } from 'react-icons/fa';
 import MagneticButton from './MagneticButton';
 
-const ProjectCard = ({ title, description, tech, github, demo, image, featured }) => {
+const ProjectCard = ({ title, description, tech, github, demo, image, featured, problem, solution, outcome }) => {
+  const [activeTab, setActiveTab] = useState('overview');
+  const hasCaseStudy = featured && problem && solution && outcome;
+
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      }
+      transition: { duration: 0.6, ease: 'easeOut' },
     },
     hover: {
       y: -8,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut",
-      }
-    }
+      transition: { duration: 0.3, ease: 'easeOut' },
+    },
   };
 
   const imageVariants = {
     hover: {
       scale: 1.1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      }
-    }
-  };
-
-  const techVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: (i) => ({
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.4,
-        ease: "easeOut",
-      }
-    })
-  };
-
-  const buttonVariants = {
-    hover: {
-      scale: 1.05,
-      y: -2,
-      transition: {
-        duration: 0.2,
-        ease: "easeOut",
-      }
+      transition: { duration: 0.6, ease: 'easeOut' },
     },
-    tap: {
-      scale: 0.95,
-      transition: {
-        duration: 0.1,
-      }
-    }
+  };
+
+  const tabContent = {
+    overview: description,
+    problem,
+    solution,
+    outcome,
   };
 
   return (
@@ -70,9 +42,8 @@ const ProjectCard = ({ title, description, tech, github, demo, image, featured }
       whileInView="visible"
       whileHover="hover"
       viewport={{ once: true }}
-      className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:bg-white/10 transition-all duration-500 hover:shadow-xl hover:shadow-[#7C6CF6]/10"
+      className="group relative h-full flex flex-col bg-muted/30 backdrop-blur-sm border border-border rounded-xl overflow-hidden hover:bg-muted/50 transition-all duration-500 hover:shadow-xl hover:shadow-[#7C6CF6]/10"
     >
-      {/* Featured Badge */}
       {featured && (
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
@@ -89,15 +60,15 @@ const ProjectCard = ({ title, description, tech, github, demo, image, featured }
         </motion.div>
       )}
 
-      {/* Image Container */}
-      <div className="relative overflow-hidden">
-        <motion.img 
-          src={image} 
-          alt={title} 
+      <div className="relative overflow-hidden h-36 sm:h-40 shrink-0">
+        <motion.img
+          src={image}
+          alt={title}
+          loading="lazy"
           variants={imageVariants}
-          className="w-full h-32 sm:h-36 object-cover" 
+          className="w-full h-full object-cover"
         />
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
@@ -105,82 +76,82 @@ const ProjectCard = ({ title, description, tech, github, demo, image, featured }
         />
       </div>
 
-      {/* Content */}
-      <div className="p-3 sm:p-4">
-        <motion.h3 
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          viewport={{ once: true }}
-          className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-[#7C6CF6] transition-colors duration-300"
-        >
+      <div className="p-3 sm:p-4 flex flex-col flex-1">
+        <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 line-clamp-2 min-h-[3rem] group-hover:text-[#7C6CF6] transition-colors duration-300">
           {title}
-        </motion.h3>
-        
-        <motion.p 
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-3 line-clamp-3"
-        >
-          {description}
-        </motion.p>
+        </h3>
 
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-1 mb-3 sm:mb-4">
+        <div className="mb-3 min-h-[7.5rem]">
+          {hasCaseStudy ? (
+            <>
+              <div className="flex flex-wrap gap-1 mb-2 min-h-[1.5rem]">
+                {['overview', 'problem', 'solution', 'outcome'].map((tab) => (
+                  <button
+                    key={tab}
+                    type="button"
+                    onClick={() => setActiveTab(tab)}
+                    className={`px-2 py-0.5 text-xs rounded-full capitalize transition-colors ${
+                      activeTab === tab
+                        ? 'bg-[#7C6CF6] text-white'
+                        : 'bg-muted text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed line-clamp-4">
+                {tabContent[activeTab]}
+              </p>
+            </>
+          ) : (
+            <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed line-clamp-4">
+              {description}
+            </p>
+          )}
+        </div>
+
+        <div className="flex flex-wrap gap-1 mb-4 min-h-[4.5rem] content-start">
           {tech.map((technology, index) => (
-            <motion.span
+            <span
               key={index}
-              custom={index}
-              variants={techVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="px-2 py-1 bg-[#7C6CF6]/20 text-[#7C6CF6] text-xs rounded-full border border-[#7C6CF6]/30 font-medium hover:bg-[#7C6CF6]/30 transition-colors duration-200"
+              className="px-2 py-1 bg-[#7C6CF6]/20 text-[#7C6CF6] text-xs rounded-full border border-[#7C6CF6]/30 font-medium"
             >
               {technology}
-            </motion.span>
+            </span>
           ))}
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex gap-2">
+        <div className="flex gap-2 mt-auto pt-2">
           <MagneticButton
             as="a"
             href={github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-1 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] text-white py-2 px-3 rounded-lg font-medium hover:shadow-lg hover:shadow-[#7C6CF6]/25 transition-all duration-300 border border-[#7C6CF6]/20 text-xs"
+            className="flex-1 flex items-center justify-center gap-1 bg-gradient-to-r from-[#7C6CF6] to-[#9B8AFF] text-white py-2 px-3 rounded-lg font-medium text-xs"
           >
-            <FaGithub size={12} className="sm:w-3 sm:h-3" />
+            <FaGithub size={12} />
             <span className="hidden sm:inline">Code</span>
             <span className="sm:hidden">Git</span>
           </MagneticButton>
-          
-          {demo && (
+
+          {demo ? (
             <MagneticButton
               as="a"
               href={demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-1 bg-transparent text-white py-2 px-3 rounded-lg font-medium border border-[#7C6CF6] hover:bg-[#7C6CF6]/10 transition-all duration-300 text-xs"
+              className="flex-1 flex items-center justify-center gap-1 bg-transparent text-foreground py-2 px-3 rounded-lg font-medium border border-[#7C6CF6] hover:bg-[#7C6CF6]/10 text-xs"
             >
-              <FaExternalLinkAlt size={12} className="sm:w-3 sm:h-3" />
+              <FaExternalLinkAlt size={12} />
               <span className="hidden sm:inline">Demo</span>
               <span className="sm:hidden">Live</span>
             </MagneticButton>
+          ) : (
+            <div className="flex-1" aria-hidden="true" />
           )}
         </div>
       </div>
-
-      {/* Hover Effect Overlay */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
-        className="absolute inset-0 bg-gradient-to-r from-[#7C6CF6]/5 to-[#9B8AFF]/5 pointer-events-none"
-      />
     </motion.div>
   );
 };
