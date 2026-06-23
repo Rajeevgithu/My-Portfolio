@@ -1,4 +1,5 @@
 import { buildSystemPrompt } from './portfolioContext.js';
+import { getApiKeys } from './env.js';
 
 const OPENAI_MODEL = 'gpt-4o-mini';
 const GROQ_MODEL = 'llama-3.3-70b-versatile';
@@ -216,13 +217,11 @@ export async function generateReply(rawMessages) {
     throw error;
   }
 
-  const geminiKey = process.env.GEMINI_API_KEY?.trim();
-  const groqKey = process.env.GROQ_API_KEY?.trim();
-  const openaiKey = process.env.OPENAI_API_KEY?.trim();
+  const { geminiKey, groqKey, openaiKey } = getApiKeys();
 
   if (!geminiKey && !groqKey && !openaiKey) {
     const error = new Error(
-      'AI is not configured. Add GEMINI_API_KEY, GROQ_API_KEY (free), or OPENAI_API_KEY to your .env file.'
+      'AI is not configured. Add GEMINI_API_KEY in Vercel → Settings → Environment Variables (Production + Preview), then redeploy your site.'
     );
     error.statusCode = 503;
     throw error;
