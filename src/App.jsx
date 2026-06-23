@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ParallaxBackground from './components/ParallaxBackground';
 import HireMeButton from './components/HireMeButton';
+import ChatWidget from './components/chat/ChatWidget';
 import ScrollToSectionOnRoute from './components/ScrollToSectionOnRoute';
 
 import Hero from './sections/Hero';
@@ -46,6 +47,7 @@ function Portfolio() {
       </main>
 
       <Footer />
+      <ChatWidget />
     </>
   );
 }
